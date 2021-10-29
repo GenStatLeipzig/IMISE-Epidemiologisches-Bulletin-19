@@ -122,15 +122,15 @@ calcNEutod <- function(erhoehung_impf_ue60=0, showAllHist = F, zusatzschutzfakto
   # Lassen sich irgendwann Infizierte genauso haeufig impfen wie alle anderen? 
   # Leider keine Daten, daher groesserer bereich5, nahm als wahrscheinlichsten Wert Impfquote an
   
-  ueberlapp_infiziertUNDgeimpft_60_80_min = mean(impfquote_60_80) -0.15
-  ueberlapp_infiziertUNDgeimpft_60_80_max = mean(impfquote_60_80) +0.15
+  ueberlapp_infiziertUNDgeimpft_60_80_min = mean(impfquote_60_80) -0.10
+  ueberlapp_infiziertUNDgeimpft_60_80_max = mean(impfquote_60_80) +0.10
   if(ueberlapp_infiziertUNDgeimpft_60_80_max>1) ueberlapp_infiziertUNDgeimpft_60_80_max=1
   ueberlapp_infiziertUNDgeimpft_60_80 = rtriangle(n = Nsim, a = ueberlapp_infiziertUNDgeimpft_60_80_min, b = ueberlapp_infiziertUNDgeimpft_60_80_max, c=mean(impfquote_60_80)) # 0.8 ca. saechsische impfquote 60+
   if(showAllHist==T) NiceHist(ueberlapp_infiziertUNDgeimpft_60_80)
   
   
-  ueberlapp_infiziertUNDgeimpft_80plus_min = mean(impfquote_80plus) -0.15
-  ueberlapp_infiziertUNDgeimpft_80plus_max = mean(impfquote_80plus) +0.15
+  ueberlapp_infiziertUNDgeimpft_80plus_min = mean(impfquote_80plus) -0.10
+  ueberlapp_infiziertUNDgeimpft_80plus_max = mean(impfquote_80plus) +0.10
   if(ueberlapp_infiziertUNDgeimpft_80plus_max>1) ueberlapp_infiziertUNDgeimpft_80plus_max=1
   ueberlapp_infiziertUNDgeimpft_80plus = rtriangle(n = Nsim, a = ueberlapp_infiziertUNDgeimpft_80plus_min, b = ueberlapp_infiziertUNDgeimpft_80plus_max, c=mean(impfquote_80plus)) # 0.8 ca. saechsische impfquote 60+
   if(showAllHist==T) NiceHist(ueberlapp_infiziertUNDgeimpft_80plus)
@@ -365,24 +365,24 @@ p_scenarien_ageANDschutzdet
 
 
 
-jpeg(here('results/b19_s08_15_szenarienV3_Verstorbene.jpeg'), 4.4,4.4, quality = 100, res = 150,  units = "in")
+jpeg(here('results/b19_s08_16_szenarienV3_Verstorbene.jpeg'), 4.4,4.4, quality = 100, res = 150,  units = "in")
 p_scenarien
 dev.off()
 # 
-jpeg(here('results/b19_s08_15_szenarienV3_Verstorbene_schutzdetails.jpeg'), width =7.4,6.4, quality = 100, res = 150,  units = "in")
+jpeg(here('results/b19_s08_16_szenarienV3_Verstorbene_schutzdetails.jpeg'), width =7.4,6.4, quality = 100, res = 150,  units = "in")
 p_scenarien_schutzdet
 dev.off()
 
-jpeg(here('results/b19_s08_15_szenarienV3_Verstorbene_agedetails.jpeg'), width =7.4,6.4, quality = 100, res = 150,  units = "in")
+jpeg(here('results/b19_s08_16_szenarienV3_Verstorbene_agedetails.jpeg'), width =7.4,6.4, quality = 100, res = 150,  units = "in")
 p_scenarien_agedet
 dev.off()
 
 
-jpeg(here('results/b19_s08_15_szenarienV3_Verstorbene__ageANDschutzdet.jpeg'), width =9.9,5.4, quality = 100, res = 150,  units = "in")
+jpeg(here('results/b19_s08_16_szenarienV3_Verstorbene__ageANDschutzdet.jpeg'), width =9.9,5.4, quality = 100, res = 150,  units = "in")
 p_scenarien_ageANDschutzdet
 dev.off()
 
-jpeg(here('results/b19_s08_15_szenarienV3_Verstorbene_histogramme.jpeg'), width =9,9, quality = 100, res = 150,  units = "in")
+jpeg(here('results/b19_s08_16_szenarienV3_Verstorbene_histogramme.jpeg'), width =9,9, quality = 100, res = 150,  units = "in")
 
 par(mfrow = c(2,2))
 NiceHist(scenario_aktuell$neutod_ue60,MAIN =  "scenario_aktuell")
