@@ -4,7 +4,7 @@ require(ggthemes)
 require(scales)
 require(OurTools) # von Dirk Hasenclever, fuer Darstellun NiceHist
 require(triangle)
-require(toolboxH)
+require(toolboxH) # available here: https://github.com/holgerman/toolboxH
 require(ggplot2)
 require(here)
 
@@ -525,7 +525,7 @@ allscenarien_schutzdet$scenario = rep(
 ) %>% sort()
 
 allscenarien_schutzdet
-ccc(allscenarien_schutzdet)
+# ccc(allscenarien_schutzdet)
 
 p_scenarien = ggplot(
   allscenarien_schutzdet[gruppe == 'Gesamt' ], 
@@ -591,7 +591,7 @@ allscenarien_agedet$scenario = rep(
 
 
 allscenarien_agedet
-ccc(allscenarien_agedet)
+# ccc(allscenarien_agedet)
 
 p_scenarien_agedet = ggplot(
   allscenarien_agedet, 
@@ -628,7 +628,7 @@ allscenarien_ageANDschutzdet = rbind(scenario_aktuell$quantile_ageANDschutzdet,
 allscenarien_ageANDschutzdet$scenario = rep(c("Scenario 1:\nIst-Stand", "Scenario 2:\nImpfquote +10%", "Scenario 3:\n+Drittimpfung", "Scenario 4:\nImpfquote +10%\n+Drittimpfung"), 5) %>% sort()
 
 allscenarien_ageANDschutzdet
-ccc(allscenarien_ageANDschutzdet)
+# ccc(allscenarien_ageANDschutzdet)
 
 p_scenarien_ageANDschutzdet = ggplot(
   allscenarien_ageANDschutzdet, 
