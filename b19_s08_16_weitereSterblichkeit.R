@@ -2,7 +2,7 @@
 rm(list = ls())
 require(ggthemes)
 require(scales)
-require(OurTools) # von Dirk Hasenclever, fuer Darstellun NiceHist
+require(OurTools) # von Dirk Hasenclever, fuer Darstellung NiceHist()
 require(triangle)
 require(toolboxH) # available here: https://github.com/holgerman/toolboxH
 require(ggplot2)
@@ -39,7 +39,7 @@ calcNEutod <- function(
   dunkelziffer_60_80 = 1.5 + (7-1.5)*rbeta(Nsim, 2, 6)
   
   if(showAllHist==T) NiceHist(dunkelziffer_60_80)  
-  # Interpretation HK von MUCOS Analyse 26.10.21 vgl. auch # Berits Report
+  # Interpretation HK von MUCOS Analyse 26.10.21 vgl. auch # Berit Langes Seropositivitäts-Report
   # https://www.medrxiv.org/content/10.1101/2021.05.04.21256597v2.full.pdf  und
   # RKI Report Bulletin
   # https://www.rki.de/DE/Content/Infekt/EpidBull/Archiv/2021/Ausgaben/37_21.html
@@ -118,16 +118,16 @@ calcNEutod <- function(
   if(showAllHist==T) NiceHist(cfr_60_80_geimpft)
   if(showAllHist==T) NiceHist(cfr_60_80_geimpft/dunkelziffer_60_80)
   
-  # wieviel der Ue60 werden ueberhaupt sich in den naechsten Jahren anstecken #
-  # Grippe (Influenza): Verbreitung leider nur wenig gefunden, e.g. Die
-  # Weltgesundheitorganisation WHO geht davon aus, dass auf der Nordhalbkugel
+  # wieviel der Ue60 werden ueberhaupt sich in den naechsten Monaten anstecken #
+  # Grippe (endemisch):15% - SARS-Cov-2 2-4mal höher
+  # angenommen, da noch nicht endemisch, höherer R
+  # Wert und aber auch in Sachsen die
+  # Coronaschutzverordnung mit Bremse bei
+  # Maximalbelegung ITS/Krankenhaus in Kraft ist
+  # vgl. auch WHO geht davon aus, dass auf der Nordhalbkugel
   # jährlich etwa 5 bis 15 Prozent der Bevölkerung an Grippe erkranken. In
   # Deutschland wurden dem Robert Koch-Institut (RKI) für die Grippe-Saison
   # 2014/2015 70.247 Fälle gemeldet.04.08.2016 # www.lungeninformationsdienst.de
-  # › virale Infekte Verwende daher Informationen von EBV Durchseuchung mit
-  # grosserer Unsicherheit: #EBV
-  # https://www.gesundheitsforschung-bmbf.de/de/epstein-barr-virus-von-harmlos-bis-folgenschwer-7238.php
-  # gr 90%
   
   # simulate infection rate of unvacc pop
   betroffen_ungeimpft = rtriangle(
@@ -335,8 +335,6 @@ calcNEutod <- function(
   
   par(mfrow = c(1,1))
   if(showAllHist==T) NiceHist(neutod_60_80)
-  
-  # neutod_geimpft_infiziert_80plus = geimpft_infiziert_80plus* betroffen_geimpft_infiziert * cfr_80plus_geimpft/dunkelziffer_80plus 
   
   neutod_geimpft_infiziert_80plus = geimpft_80plus* betroffen_geimpft_infiziert * cfr_80plus_geimpft/dunkelziffer_80plus + 
     infiziert_ungeimpft_80plus* betroffen_geimpft_infiziert * cfr_80plus_geimpft_ohneBooster/dunkelziffer_80plus 
