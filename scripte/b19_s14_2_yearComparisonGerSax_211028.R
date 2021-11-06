@@ -157,8 +157,12 @@ dat[,  cases100k7d := frollsum(
 dat[,cases2plot := ifelse(type=="ICU", cases100k, cases100k7d)]
 # create date comparison groups
 dat$date <- as.Date(dat$date, format="%Y-%m-%d")
-dat[date >= "2020-04-01" & date <= "2020-10-28", year := "2020"]
-dat[date >= "2021-04-01" & date <= "2021-10-28", year := "2021"]
+dat[date >= "2021-04-01" , year := "2021"]
+maxdate = max(dat$date)
+maxdate
+
+dat[date >= "2020-04-01" & date <= (maxdate-365), year := "2020"]
+
 
 # add a year to enable plotting using date scale, otherwise: chaos, madness, death...
 dat[year == "2020", date := date + years(1)]
