@@ -4,11 +4,17 @@ Analysecode und Aktualisierungen von Grafiken des Epidemiologischen Bulletins 19
 
 ### Aktualisierung Abb. 1: Verlauf der COVID-19 Testpositiven in Deutschland und Sachsen nach Altersgruppe.
 
-<img src="results/b19_s06_3_ageStratPlot.jpeg" title="Infektionsgeschehen in Sachsen und Deutschland" width="616"/>
+<img src="results/b19_s06_3_ageStratPlot.jpeg" title="Infektionsgeschehen in Sachsen und Deutschland" width="671"/>
 
 *Verlauf der COVID-19 Testpositiven in Deutschland und Sachsen nach Altersgruppe. Die schwarze Linie entspricht dem Durchschnitt der Gesamtbevölkerung. In Sachsen ist das langanhaltende exponentielle Wachstum (i.e. stetige Verdoppelung der Fallzahlen in der gleichen Zeiteinheit) deutlich als linearer Anstieg in der hier gewählten logarithmischen Skaleneinteilung sichtbar. (Datenquelle: RKI nach Meldedatum, aggregiert vom KIT - Karlsruher Institut für Technologie*
 
-### Vergleich Infektionsgeschehen 2021 vs. 2020
+### Aktualisierung Abb. 2: Vergleich der berichteten COVID-19 Testpositiven nach Impfstatus in Sachsen
+
+<img src="results/b19_s10_4_vaccNonVaccPlotData.jpeg" title="Abb. 2: Vergleich der berichteten COVID-19 Testpositiven nach Impfstatus in Sachsen. Quelle: SMS" width="360"/>
+
+Quelle: SMS
+
+### Aktualisierung Abb.3: Vergleich Infektionsgeschehen 2021 vs. 2020
 
 ![](results/b19_S14_2_year2year_comparison.jpeg "vergleich infektionsgeschehen 2021 vs 2020")
 
