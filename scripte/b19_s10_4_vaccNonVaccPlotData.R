@@ -15,7 +15,7 @@ require(stringr)
 
 
 dat_pre <- fread(here("data/wpd_datasets_211107"), header = F) # credits to https://automeris.io/WebPlotDigitizer/
-maxdat = as_date("2021-10-07")
+maxdat = as_date("2021-11-07")
 names(dat_pre) = c('nonvacc_x','nonvacc_y', 'all_x', 'all_y', 'vacc_x', 'vacc_y' )
 dat_pre2  = dat_pre[-1:-2]
 dat_pre3 = rbind(data.table(datum = dat_pre2[,1] %>% unlist(), testpositiv =dat_pre2[,2]%>% unlist(), group = "non_vacc"),
