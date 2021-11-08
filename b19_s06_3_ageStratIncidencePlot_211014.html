@@ -109,11 +109,11 @@
 ##    4: 2020-03-25       GM       Germany   A35-A59  1989
 ##    5: 2020-03-25       GM       Germany   A60-A79   754
 ##   ---                                                  
-## 4140: 2021-11-07       GM       Germany   A15-A34  6684
-## 4141: 2021-11-07       GM       Germany   A35-A59  8435
-## 4142: 2021-11-07       GM       Germany   A60-A79  2954
-## 4143: 2021-11-07       GM       Germany      A80+  1037
-## 4144: 2021-11-07       GM       Germany unbekannt    15
+## 4147: 2021-11-08       GM       Germany   A15-A34  4599
+## 4148: 2021-11-08       GM       Germany   A35-A59  5559
+## 4149: 2021-11-08       GM       Germany   A60-A79  1978
+## 4150: 2021-11-08       GM       Germany      A80+   693
+## 4151: 2021-11-08       GM       Germany unbekannt    16
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl std">dat_cases_age[location_name</span> <span class="hl opt">==</span> <span class="hl str">&quot;Free State of Saxony&quot;</span><span class="hl std">]</span>
 </pre></div>
@@ -124,11 +124,11 @@
 ##    4: 2020-03-25     GM13 Free State of Saxony   A35-A59    72
 ##    5: 2020-03-25     GM13 Free State of Saxony   A60-A79    30
 ##   ---                                                         
-## 3775: 2021-11-07     GM13 Free State of Saxony   A15-A34   694
-## 3776: 2021-11-07     GM13 Free State of Saxony   A35-A59   956
-## 3777: 2021-11-07     GM13 Free State of Saxony   A60-A79   381
-## 3778: 2021-11-07     GM13 Free State of Saxony      A80+   170
-## 3779: 2021-11-07     GM13 Free State of Saxony unbekannt     0
+## 3782: 2021-11-08     GM13 Free State of Saxony   A15-A34   642
+## 3783: 2021-11-08     GM13 Free State of Saxony   A35-A59   895
+## 3784: 2021-11-08     GM13 Free State of Saxony   A60-A79   413
+## 3785: 2021-11-08     GM13 Free State of Saxony      A80+   145
+## 3786: 2021-11-08     GM13 Free State of Saxony unbekannt     0
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl com"># I only need germany and saxony</span>
 <span class="hl std">dat_cases_age</span> <span class="hl kwb">&lt;-</span> <span class="hl std">dat_cases_age[location_name</span> <span class="hl opt">%in%</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Germany&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Free State of Saxony&quot;</span><span class="hl std">)]</span>
@@ -139,12 +139,12 @@
 <span class="hl std">toolboxH</span><span class="hl opt">::</span><span class="hl kwd">showNA</span><span class="hl std">(dat_cases_all)</span>
 </pre></div>
 <div class="output"><pre class="knitr r">##             var NAs vals
-## 1          date   0 1184
-## 2      location   0 1184
-## 3 location_name   0 1184
-## 4         value   0 1184
-## 5     age_group   0 1184
-## 6   ROWS_NO_NAs   0 1184
+## 1          date   0 1186
+## 2      location   0 1186
+## 3 location_name   0 1186
+## 4         value   0 1186
+## 5     age_group   0 1186
+## 6   ROWS_NO_NAs   0 1186
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl std">dat_cases_age</span> <span class="hl kwb">=</span> <span class="hl kwd">unique</span><span class="hl std">(</span><span class="hl kwd">rbind</span><span class="hl std">(dat_cases_age, dat_cases_all))</span>
 
@@ -347,6 +347,7 @@
 ## 26:       Germany 2021-11-05 361.4249
 ## 27:       Germany 2021-11-06 391.2499
 ## 28:       Germany 2021-11-07 407.2538
+## 29:       Germany 2021-11-08 421.3395
 ##     location_name       date       V2
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl com"># Saving ----</span>
@@ -445,7 +446,7 @@
 </pre></div>
 <div class="source"><pre class="knitr r">    <span class="hl kwd">Sys.time</span><span class="hl std">()</span>
 </pre></div>
-<div class="output"><pre class="knitr r">## [1] &quot;2021-11-08 13:31:48 CET&quot;
+<div class="output"><pre class="knitr r">## [1] &quot;2021-11-08 16:01:15 CET&quot;
 </pre></div>
 </div></div>
 

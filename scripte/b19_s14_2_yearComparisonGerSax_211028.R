@@ -161,7 +161,7 @@ dat[date >= "2021-04-01" , year := "2021"]
 maxdate = max(dat$date)
 maxdate
 
-dat[date >= "2020-04-01" & date <= (maxdate-365), year := "2020"]
+dat[date >= "2020-04-01" & date <= (maxdate-365)+28, year := "2020"]
 
 
 # add a year to enable plotting using date scale, otherwise: chaos, madness, death...
@@ -181,7 +181,8 @@ p1 <- ggplot(
     x = date,
     y = cases2plot,
     col = year,
-    lty = year
+    lty = year,
+    lwd = year
   )
 ) +
   facet_wrap(
@@ -197,7 +198,7 @@ p1 <- ggplot(
                "ICU" = "tägl. Bettenbelegung ITS")
     )
   ) +
-  geom_line(lwd = 1.05) +
+  geom_line(alpha=0.8) +
   scale_x_date(breaks = brk_vec, date_labels = "%d-%b") +
   ylab("Fälle / 100.000 Einwohner") + 
   xlab("") + 
@@ -209,7 +210,8 @@ p1 <- ggplot(
         legend.justification = "center"
   ) +
   labs(color = "Jahr",
-       lty = "Jahr")
+       lty = "Jahr") +
+  scale_size_manual(values = c(1.2, 0.9))
 p1
 
 jpeg(here("results/b19_S14_2_year2year_comparison.jpeg"), 10,4,units = "in", quality  = 100, res = 150)

@@ -89,8 +89,9 @@
 <span class="hl com"># data: https://www.coronavirus.sachsen.de/infektionsfaelle-in-sachsen-4151.html</span>
 <span class="hl com"># digitized using: https://apps.automeris.io/wpd/</span>
 
-<span class="hl std">dat_pre</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">read_excel2</span><span class="hl std">(</span><span class="hl kwd">here</span><span class="hl std">(</span><span class="hl str">&quot;data/211027_digitized_vaccination_data.xlsx&quot;</span><span class="hl std">),</span> <span class="hl kwc">col_names</span> <span class="hl std">=</span> <span class="hl kwd">paste0</span><span class="hl std">(</span><span class="hl str">&quot;V&quot;</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl opt">:</span><span class="hl num">4</span><span class="hl std">))</span> <span class="hl com"># credits to https://automeris.io/WebPlotDigitizer/</span>
-<span class="hl std">dat_pre</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">fread</span><span class="hl std">(</span><span class="hl kwd">here</span><span class="hl std">(</span><span class="hl str">&quot;data/wpd_datasets_211105&quot;</span><span class="hl std">),</span> <span class="hl kwc">header</span> <span class="hl std">= F)</span>
+
+<span class="hl std">dat_pre</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">fread</span><span class="hl std">(</span><span class="hl kwd">here</span><span class="hl std">(</span><span class="hl str">&quot;data/wpd_datasets_211107&quot;</span><span class="hl std">),</span> <span class="hl kwc">header</span> <span class="hl std">= F)</span> <span class="hl com"># credits to https://automeris.io/WebPlotDigitizer/</span>
+<span class="hl std">maxdat</span> <span class="hl kwb">=</span> <span class="hl kwd">as_date</span><span class="hl std">(</span><span class="hl str">&quot;2021-10-07&quot;</span><span class="hl std">)</span>
 <span class="hl kwd">names</span><span class="hl std">(dat_pre)</span> <span class="hl kwb">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">'nonvacc_x'</span><span class="hl std">,</span><span class="hl str">'nonvacc_y'</span><span class="hl std">,</span> <span class="hl str">'all_x'</span><span class="hl std">,</span> <span class="hl str">'all_y'</span><span class="hl std">,</span> <span class="hl str">'vacc_x'</span><span class="hl std">,</span> <span class="hl str">'vacc_y'</span> <span class="hl std">)</span>
 <span class="hl std">dat_pre2</span>  <span class="hl kwb">=</span> <span class="hl std">dat_pre[</span><span class="hl opt">-</span><span class="hl num">1</span><span class="hl opt">:-</span><span class="hl num">2</span><span class="hl std">]</span>
 <span class="hl std">dat_pre3</span> <span class="hl kwb">=</span> <span class="hl kwd">rbind</span><span class="hl std">(</span><span class="hl kwd">data.table</span><span class="hl std">(</span><span class="hl kwc">datum</span> <span class="hl std">= dat_pre2[,</span><span class="hl num">1</span><span class="hl std">]</span> <span class="hl opt">%&gt;%</span> <span class="hl kwd">unlist</span><span class="hl std">(),</span> <span class="hl kwc">testpositiv</span> <span class="hl std">=dat_pre2[,</span><span class="hl num">2</span><span class="hl std">]</span><span class="hl opt">%&gt;%</span> <span class="hl kwd">unlist</span><span class="hl std">(),</span> <span class="hl kwc">group</span> <span class="hl std">=</span> <span class="hl str">&quot;non_vacc&quot;</span><span class="hl std">),</span>
@@ -104,7 +105,7 @@
 
 <span class="hl com"># CAve MEldeverzug! SAchen SMS : Hinweise: Die Auswertung der 7-Tage-Inzidenz (Zahl der SARS-CoV-2-Neuinfektionen je 100.000 Einwohner in den vergangenen 7 Tagen) der Geimpften und nicht (vollständig) Geimpften erfolgt aktuell noch unter Vorbehalt</span>
 <span class="hl com"># create date column</span>
-<span class="hl std">dat</span> <span class="hl kwb">=</span> <span class="hl std">dat_pre4</span><span class="hl com">#[date &lt;= max(date)-7]</span>
+<span class="hl std">dat</span> <span class="hl kwb">=</span> <span class="hl std">dat_pre4[date</span> <span class="hl opt">&lt;=</span> <span class="hl std">maxdat]</span>
 <span class="hl com"># round data to nearest full Int</span>
 <span class="hl std">dat</span><span class="hl opt">$</span><span class="hl std">count</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">gsub</span><span class="hl std">(dat</span><span class="hl opt">$</span><span class="hl std">count,</span> <span class="hl kwc">pattern</span> <span class="hl std">=</span> <span class="hl str">&quot;,&quot;</span><span class="hl std">,</span> <span class="hl kwc">replacement</span> <span class="hl std">=</span> <span class="hl str">&quot;.&quot;</span><span class="hl std">,</span> <span class="hl kwc">fixed</span> <span class="hl std">= T)</span>
 <span class="hl std">dat</span><span class="hl opt">$</span><span class="hl std">count</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">as.numeric</span><span class="hl std">(dat</span><span class="hl opt">$</span><span class="hl std">count)</span>
@@ -229,7 +230,7 @@
 </pre></div>
 <div class="source"><pre class="knitr r">    <span class="hl kwd">Sys.time</span><span class="hl std">()</span>
 </pre></div>
-<div class="output"><pre class="knitr r">## [1] &quot;2021-11-08 13:31:49 CET&quot;
+<div class="output"><pre class="knitr r">## [1] &quot;2021-11-08 16:01:16 CET&quot;
 </pre></div>
 </div></div>
 

@@ -13,8 +13,9 @@ require(stringr)
 # data: https://www.coronavirus.sachsen.de/infektionsfaelle-in-sachsen-4151.html
 # digitized using: https://apps.automeris.io/wpd/
 
-dat_pre <- read_excel2(here("data/211027_digitized_vaccination_data.xlsx"), col_names = paste0("V", 1:4)) # credits to https://automeris.io/WebPlotDigitizer/
-dat_pre <- fread(here("data/wpd_datasets_211105"), header = F)
+
+dat_pre <- fread(here("data/wpd_datasets_211107"), header = F) # credits to https://automeris.io/WebPlotDigitizer/
+maxdat = as_date("2021-10-07")
 names(dat_pre) = c('nonvacc_x','nonvacc_y', 'all_x', 'all_y', 'vacc_x', 'vacc_y' )
 dat_pre2  = dat_pre[-1:-2]
 dat_pre3 = rbind(data.table(datum = dat_pre2[,1] %>% unlist(), testpositiv =dat_pre2[,2]%>% unlist(), group = "non_vacc"),
@@ -28,7 +29,7 @@ dat_pre4 = dat_pre4[count>0 & date> dat_pre4[group=='vacc',min(date)] & (group==
 
 # CAve MEldeverzug! SAchen SMS : Hinweise: Die Auswertung der 7-Tage-Inzidenz (Zahl der SARS-CoV-2-Neuinfektionen je 100.000 Einwohner in den vergangenen 7 Tagen) der Geimpften und nicht (vollständig) Geimpften erfolgt aktuell noch unter Vorbehalt
 # create date column
-dat = dat_pre4#[date <= max(date)-7]
+dat = dat_pre4[date <= maxdat]
 # round data to nearest full Int
 dat$count <- gsub(dat$count, pattern = ",", replacement = ".", fixed = T)
 dat$count <- as.numeric(dat$count)

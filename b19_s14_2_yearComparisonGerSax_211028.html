@@ -258,7 +258,7 @@
 </pre></div>
 <div class="output"><pre class="knitr r">## [1] &quot;2021-11-08&quot;
 </pre></div>
-<div class="source"><pre class="knitr r"><span class="hl std">dat[date</span> <span class="hl opt">&gt;=</span> <span class="hl str">&quot;2020-04-01&quot;</span> <span class="hl opt">&amp;</span> <span class="hl std">date</span> <span class="hl opt">&lt;=</span> <span class="hl std">(maxdate</span><span class="hl opt">-</span><span class="hl num">365</span><span class="hl std">), year</span> <span class="hl kwb">:=</span> <span class="hl str">&quot;2020&quot;</span><span class="hl std">]</span>
+<div class="source"><pre class="knitr r"><span class="hl std">dat[date</span> <span class="hl opt">&gt;=</span> <span class="hl str">&quot;2020-04-01&quot;</span> <span class="hl opt">&amp;</span> <span class="hl std">date</span> <span class="hl opt">&lt;=</span> <span class="hl std">(maxdate</span><span class="hl opt">-</span><span class="hl num">365</span><span class="hl std">)</span><span class="hl opt">+</span><span class="hl num">28</span><span class="hl std">, year</span> <span class="hl kwb">:=</span> <span class="hl str">&quot;2020&quot;</span><span class="hl std">]</span>
 
 
 <span class="hl com"># add a year to enable plotting using date scale, otherwise: chaos, madness, death...</span>
@@ -270,7 +270,7 @@
 <span class="hl std">dat[,year</span><span class="hl kwb">:=</span><span class="hl kwd">factor</span><span class="hl std">(year,</span><span class="hl kwc">levels</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">2021</span><span class="hl std">,</span> <span class="hl num">2020</span><span class="hl std">))]</span>
 <span class="hl std">dat</span> <span class="hl opt">%&gt;%</span> <span class="hl std">str</span>
 </pre></div>
-<div class="output"><pre class="knitr r">## Classes 'data.table' and 'data.frame':	2660 obs. of  8 variables:
+<div class="output"><pre class="knitr r">## Classes 'data.table' and 'data.frame':	2832 obs. of  8 variables:
 ##  $ date       : Date, format: &quot;2021-04-01&quot; &quot;2021-04-02&quot; ...
 ##  $ area       : chr  &quot;Free State of Saxony&quot; &quot;Free State of Saxony&quot; &quot;Free State of Saxony&quot; &quot;Free State of Saxony&quot; ...
 ##  $ type       : chr  &quot;Case&quot; &quot;Case&quot; &quot;Case&quot; &quot;Case&quot; ...
@@ -289,7 +289,8 @@
     <span class="hl kwc">x</span> <span class="hl std">= date,</span>
     <span class="hl kwc">y</span> <span class="hl std">= cases2plot,</span>
     <span class="hl kwc">col</span> <span class="hl std">= year,</span>
-    <span class="hl kwc">lty</span> <span class="hl std">= year</span>
+    <span class="hl kwc">lty</span> <span class="hl std">= year,</span>
+    <span class="hl kwc">lwd</span> <span class="hl std">= year</span>
   <span class="hl std">)</span>
 <span class="hl std">)</span> <span class="hl opt">+</span>
   <span class="hl kwd">facet_wrap</span><span class="hl std">(</span>
@@ -305,7 +306,7 @@
                <span class="hl str">&quot;ICU&quot;</span> <span class="hl std">=</span> <span class="hl str">&quot;tägl. Bettenbelegung ITS&quot;</span><span class="hl std">)</span>
     <span class="hl std">)</span>
   <span class="hl std">)</span> <span class="hl opt">+</span>
-  <span class="hl kwd">geom_line</span><span class="hl std">(</span><span class="hl kwc">lwd</span> <span class="hl std">=</span> <span class="hl num">1.05</span><span class="hl std">)</span> <span class="hl opt">+</span>
+  <span class="hl kwd">geom_line</span><span class="hl std">(</span><span class="hl kwc">alpha</span><span class="hl std">=</span><span class="hl num">0.8</span><span class="hl std">)</span> <span class="hl opt">+</span>
   <span class="hl kwd">scale_x_date</span><span class="hl std">(</span><span class="hl kwc">breaks</span> <span class="hl std">= brk_vec,</span> <span class="hl kwc">date_labels</span> <span class="hl std">=</span> <span class="hl str">&quot;%d-%b&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
   <span class="hl kwd">ylab</span><span class="hl std">(</span><span class="hl str">&quot;Fälle / 100.000 Einwohner&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
   <span class="hl kwd">xlab</span><span class="hl std">(</span><span class="hl str">&quot;&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
@@ -317,7 +318,8 @@
         <span class="hl kwc">legend.justification</span> <span class="hl std">=</span> <span class="hl str">&quot;center&quot;</span>
   <span class="hl std">)</span> <span class="hl opt">+</span>
   <span class="hl kwd">labs</span><span class="hl std">(</span><span class="hl kwc">color</span> <span class="hl std">=</span> <span class="hl str">&quot;Jahr&quot;</span><span class="hl std">,</span>
-       <span class="hl kwc">lty</span> <span class="hl std">=</span> <span class="hl str">&quot;Jahr&quot;</span><span class="hl std">)</span>
+       <span class="hl kwc">lty</span> <span class="hl std">=</span> <span class="hl str">&quot;Jahr&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
+  <span class="hl kwd">scale_size_manual</span><span class="hl std">(</span><span class="hl kwc">values</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1.2</span><span class="hl std">,</span> <span class="hl num">0.9</span><span class="hl std">))</span>
 <span class="hl std">p1</span>
 </pre></div>
 </div><div class="rimage center"><img src="figure/b19-s14-2-yearComparisonGerSax-211028-Rhtmlauto-report-3.png" title="plot of chunk auto-report" alt="plot of chunk auto-report" class="plot" /></div><div class="rcode">
@@ -360,8 +362,10 @@
 ## Warnings found so far:
 </pre></div>
 <div class="output"><pre class="knitr r">## 
-## cannot open file 'C:/Users/IMISE/OneDrive/IMISE/R/modellclub/covid19_modellierung/_bulletin/LEipzigPlus_19/IMISE-Epidemiologisches-Bulletin-19/scripte/b19_s10_3_vaccNonVaccPlotData.R': No such file or directory 
-##                                                                                                                                                                                                                  1
+##                                                  NaNs produced 
+##                                                              2 
+## Transformation introduced infinite values in continuous y-axis 
+##                                                              2
 </pre></div>
 <div class="message"><pre class="knitr r">## ==================================================================================
 </pre></div>
@@ -446,7 +450,7 @@
 </pre></div>
 <div class="source"><pre class="knitr r">    <span class="hl kwd">Sys.time</span><span class="hl std">()</span>
 </pre></div>
-<div class="output"><pre class="knitr r">## [1] &quot;2021-11-08 13:31:55 CET&quot;
+<div class="output"><pre class="knitr r">## [1] &quot;2021-11-08 16:01:22 CET&quot;
 </pre></div>
 </div></div>
 
