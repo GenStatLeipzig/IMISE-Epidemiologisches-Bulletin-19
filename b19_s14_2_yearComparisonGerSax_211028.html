@@ -124,13 +124,13 @@
 </pre></div>
 <div class="output"><pre class="knitr r">## .
 ## ERWACHSENE     KINDER 
-##        598        598
+##        599        599
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl std">dat_icu_sax</span><span class="hl opt">$</span><span class="hl std">Behandlungsgruppe</span> <span class="hl opt">%&gt;%</span> <span class="hl std">table</span>
 </pre></div>
 <div class="output"><pre class="knitr r">## .
 ## ERWACHSENE 
-##       9568
+##       9584
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl com"># clean germany data</span>
 <span class="hl std">dat_icu_ger</span> <span class="hl kwb">&lt;-</span> <span class="hl std">dat_icu_ger[Behandlungsgruppe</span> <span class="hl opt">==</span> <span class="hl str">&quot;ERWACHSENE&quot;</span><span class="hl std">,</span> <span class="hl kwd">.</span><span class="hl std">(</span><span class="hl kwc">date</span> <span class="hl std">= Datum,</span>
@@ -256,7 +256,7 @@
 <span class="hl std">maxdate</span> <span class="hl kwb">=</span> <span class="hl kwd">max</span><span class="hl std">(dat</span><span class="hl opt">$</span><span class="hl std">date)</span>
 <span class="hl std">maxdate</span>
 </pre></div>
-<div class="output"><pre class="knitr r">## [1] &quot;2021-11-07&quot;
+<div class="output"><pre class="knitr r">## [1] &quot;2021-11-08&quot;
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl std">dat[date</span> <span class="hl opt">&gt;=</span> <span class="hl str">&quot;2020-04-01&quot;</span> <span class="hl opt">&amp;</span> <span class="hl std">date</span> <span class="hl opt">&lt;=</span> <span class="hl std">(maxdate</span><span class="hl opt">-</span><span class="hl num">365</span><span class="hl std">), year</span> <span class="hl kwb">:=</span> <span class="hl str">&quot;2020&quot;</span><span class="hl std">]</span>
 
@@ -270,7 +270,7 @@
 <span class="hl std">dat[,year</span><span class="hl kwb">:=</span><span class="hl kwd">factor</span><span class="hl std">(year,</span><span class="hl kwc">levels</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">2021</span><span class="hl std">,</span> <span class="hl num">2020</span><span class="hl std">))]</span>
 <span class="hl std">dat</span> <span class="hl opt">%&gt;%</span> <span class="hl std">str</span>
 </pre></div>
-<div class="output"><pre class="knitr r">## Classes 'data.table' and 'data.frame':	2652 obs. of  8 variables:
+<div class="output"><pre class="knitr r">## Classes 'data.table' and 'data.frame':	2660 obs. of  8 variables:
 ##  $ date       : Date, format: &quot;2021-04-01&quot; &quot;2021-04-02&quot; ...
 ##  $ area       : chr  &quot;Free State of Saxony&quot; &quot;Free State of Saxony&quot; &quot;Free State of Saxony&quot; &quot;Free State of Saxony&quot; ...
 ##  $ type       : chr  &quot;Case&quot; &quot;Case&quot; &quot;Case&quot; &quot;Case&quot; ...
@@ -360,10 +360,8 @@
 ## Warnings found so far:
 </pre></div>
 <div class="output"><pre class="knitr r">## 
-##                                                  NaNs produced 
-##                                                              1 
-## Transformation introduced infinite values in continuous y-axis 
-##                                                              1
+## cannot open file 'C:/Users/IMISE/OneDrive/IMISE/R/modellclub/covid19_modellierung/_bulletin/LEipzigPlus_19/IMISE-Epidemiologisches-Bulletin-19/scripte/b19_s10_3_vaccNonVaccPlotData.R': No such file or directory 
+##                                                                                                                                                                                                                  1
 </pre></div>
 <div class="message"><pre class="knitr r">## ==================================================================================
 </pre></div>
@@ -448,7 +446,7 @@
 </pre></div>
 <div class="source"><pre class="knitr r">    <span class="hl kwd">Sys.time</span><span class="hl std">()</span>
 </pre></div>
-<div class="output"><pre class="knitr r">## [1] &quot;2021-11-08 11:56:15 CET&quot;
+<div class="output"><pre class="knitr r">## [1] &quot;2021-11-08 13:31:55 CET&quot;
 </pre></div>
 </div></div>
 
