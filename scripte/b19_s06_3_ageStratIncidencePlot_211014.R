@@ -165,14 +165,14 @@ p1 <- ggplot(dat_cases_age[age_group!="alle" & date >= mindat, ],
         panel.grid.minor = element_blank(),
         legend.position = "bottom"
   ) + 
-  scale_x_date(breaks = brk_vec, date_labels = "%d-%b-%y"  , limits = c(mindat, max(dat_cases_age$date)+31) ) +
+  scale_x_date(breaks = brk_vec, date_labels = "%d-%b-%y"  , limits = c(mindat, max(dat_cases_age$date)+38) ) +
   ylab("") + 
   xlab("") + 
   scale_color_manual(values = c(gg_color_hue(6), "black"))+
   labs(color = "Altersgruppe") +
   ylab("7-Tage Inzidenz") +
   coord_cartesian(ylim = c(0.5, max(dat_cases_age[date >= mindat, val_sum_group], na.rm = T)))+
-  ggrepel::geom_text_repel(data = maxi, aes(label = val_sum_group_round_name ), size=2.2, alpha = 0.8, show.legend=FALSE,   min.segment.length = 11, force = 0.001,  nudge_x = 5, direction = "y", hjust = "left")+
+  ggrepel::geom_text_repel(data = maxi, aes(label = val_sum_group_round_name ), size=2.5, alpha = 0.8, show.legend=FALSE,   min.segment.length = 11, force = 0.001,  nudge_x = 6, direction = "y", hjust = "left")+
   guides(col = guide_legend(nrow = 2,override.aes=list(size=2),keywidth = 1.5))
 
 p1
