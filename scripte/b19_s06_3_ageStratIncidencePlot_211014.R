@@ -125,6 +125,19 @@ brk_vec = seq(max(dat_cases_age$date),min(dat_cases_age$date), -14)
 dat_cases_age[, location_name := factor(location_name, levels = c("Germany", "Free State of Saxony"))]
 
 mindat = as_date("2021-06-07")
+
+
+
+maxi = dat_cases_age[date ==max(date)]
+maxi[,val_sum_group_round := round(val_sum_group,0) %>% as.character()]
+maxi[,val_sum_group_round_name := paste0(age_group,": ", val_sum_group_round)]
+maxi
+
+gg_color_hue <- function(n) {
+  hues = seq(15, 375, length = n + 1)
+  hcl(h = hues, l = 65, c = 100)[1:n]
+}
+
 p1 <- ggplot(dat_cases_age[age_group!="alle" & date >= mindat, ],
              aes(date, 
                  val_sum_group, 
@@ -152,12 +165,15 @@ p1 <- ggplot(dat_cases_age[age_group!="alle" & date >= mindat, ],
         panel.grid.minor = element_blank(),
         legend.position = "bottom"
   ) + 
-  scale_x_date(breaks = brk_vec, date_labels = "%d-%b-%y"   ) +
+  scale_x_date(breaks = brk_vec, date_labels = "%d-%b-%y"  , limits = c(mindat, max(dat_cases_age$date)+31) ) +
   ylab("") + 
   xlab("") + 
+  scale_color_manual(values = c(gg_color_hue(6), "black"))+
   labs(color = "Altersgruppe") +
   ylab("7-Tage Inzidenz") +
-  coord_cartesian(ylim = c(0.5, max(dat_cases_age[date >= mindat, val_sum_group], na.rm = T)))
+  coord_cartesian(ylim = c(0.5, max(dat_cases_age[date >= mindat, val_sum_group], na.rm = T)))+
+  ggrepel::geom_text_repel(data = maxi, aes(label = val_sum_group_round_name ), size=2.2, alpha = 0.8, show.legend=FALSE,   min.segment.length = 11, force = 0.001,  nudge_x = 5, direction = "y", hjust = "left")+
+  guides(col = guide_legend(nrow = 2,override.aes=list(size=2),keywidth = 1.5))
 
 p1
 

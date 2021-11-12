@@ -124,13 +124,13 @@
 </pre></div>
 <div class="output"><pre class="knitr r">## .
 ## ERWACHSENE     KINDER 
-##        599        599
+##        602        602
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl std">dat_icu_sax</span><span class="hl opt">$</span><span class="hl std">Behandlungsgruppe</span> <span class="hl opt">%&gt;%</span> <span class="hl std">table</span>
 </pre></div>
 <div class="output"><pre class="knitr r">## .
 ## ERWACHSENE 
-##       9584
+##       9632
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl com"># clean germany data</span>
 <span class="hl std">dat_icu_ger</span> <span class="hl kwb">&lt;-</span> <span class="hl std">dat_icu_ger[Behandlungsgruppe</span> <span class="hl opt">==</span> <span class="hl str">&quot;ERWACHSENE&quot;</span><span class="hl std">,</span> <span class="hl kwd">.</span><span class="hl std">(</span><span class="hl kwc">date</span> <span class="hl std">= Datum,</span>
@@ -256,7 +256,7 @@
 <span class="hl std">maxdate</span> <span class="hl kwb">=</span> <span class="hl kwd">max</span><span class="hl std">(dat</span><span class="hl opt">$</span><span class="hl std">date)</span>
 <span class="hl std">maxdate</span>
 </pre></div>
-<div class="output"><pre class="knitr r">## [1] &quot;2021-11-08&quot;
+<div class="output"><pre class="knitr r">## [1] &quot;2021-11-12&quot;
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl std">dat[date</span> <span class="hl opt">&gt;=</span> <span class="hl str">&quot;2020-04-01&quot;</span> <span class="hl opt">&amp;</span> <span class="hl std">date</span> <span class="hl opt">&lt;=</span> <span class="hl std">(maxdate</span><span class="hl opt">-</span><span class="hl num">365</span><span class="hl std">)</span><span class="hl opt">+</span><span class="hl num">28</span><span class="hl std">, year</span> <span class="hl kwb">:=</span> <span class="hl str">&quot;2020&quot;</span><span class="hl std">]</span>
 
@@ -270,7 +270,7 @@
 <span class="hl std">dat[,year</span><span class="hl kwb">:=</span><span class="hl kwd">factor</span><span class="hl std">(year,</span><span class="hl kwc">levels</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">2021</span><span class="hl std">,</span> <span class="hl num">2020</span><span class="hl std">))]</span>
 <span class="hl std">dat</span> <span class="hl opt">%&gt;%</span> <span class="hl std">str</span>
 </pre></div>
-<div class="output"><pre class="knitr r">## Classes 'data.table' and 'data.frame':	2832 obs. of  8 variables:
+<div class="output"><pre class="knitr r">## Classes 'data.table' and 'data.frame':	2878 obs. of  8 variables:
 ##  $ date       : Date, format: &quot;2021-04-01&quot; &quot;2021-04-02&quot; ...
 ##  $ area       : chr  &quot;Free State of Saxony&quot; &quot;Free State of Saxony&quot; &quot;Free State of Saxony&quot; &quot;Free State of Saxony&quot; ...
 ##  $ type       : chr  &quot;Case&quot; &quot;Case&quot; &quot;Case&quot; &quot;Case&quot; ...
@@ -283,7 +283,40 @@
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl com"># Plotting ----</span>
 <span class="hl std">brk_vec</span> <span class="hl kwb">=</span> <span class="hl kwd">seq</span><span class="hl std">(</span><span class="hl kwd">max</span><span class="hl std">(dat</span><span class="hl opt">$</span><span class="hl std">date),</span> <span class="hl kwd">min</span><span class="hl std">(dat</span><span class="hl opt">$</span><span class="hl std">date),</span> <span class="hl opt">-</span><span class="hl num">30</span><span class="hl std">)</span>
-<span class="hl std">p1</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">ggplot</span><span class="hl std">(</span>
+<span class="hl std">maxi</span> <span class="hl kwb">=</span> <span class="hl std">dat[date</span> <span class="hl opt">%in%</span> <span class="hl kwd">c</span><span class="hl std">(dat[,</span><span class="hl kwd">.</span><span class="hl std">(</span><span class="hl kwc">maxdat</span> <span class="hl std">=</span><span class="hl kwd">max</span><span class="hl std">(date)</span> <span class="hl opt">%&gt;%</span> <span class="hl kwd">unique</span><span class="hl std">()),</span> <span class="hl kwd">.</span><span class="hl std">(year,type)]</span><span class="hl opt">$</span><span class="hl std">maxdat)]</span>
+<span class="hl std">maxi[,cases2plotround</span> <span class="hl kwb">:=</span> <span class="hl kwd">ifelse</span><span class="hl std">(type</span><span class="hl opt">==</span><span class="hl str">&quot;Death&quot;</span><span class="hl std">,</span> <span class="hl kwd">round</span><span class="hl std">(cases2plot,</span><span class="hl num">2</span><span class="hl std">)</span> <span class="hl opt">%&gt;%</span> <span class="hl kwd">as.character</span><span class="hl std">(),</span><span class="hl kwd">round</span><span class="hl std">(cases2plot,</span><span class="hl num">1</span><span class="hl std">)</span><span class="hl opt">%&gt;%</span> <span class="hl kwd">as.character</span><span class="hl std">())]</span>
+<span class="hl kwd">setorder</span><span class="hl std">(maxi,</span> <span class="hl opt">-</span><span class="hl std">date)</span>
+<span class="hl std">maxi</span> <span class="hl kwb">=</span> <span class="hl std">maxi[</span><span class="hl kwd">duplicated</span><span class="hl std">(</span><span class="hl kwd">paste</span><span class="hl std">(area, type, year))</span><span class="hl opt">==</span><span class="hl std">F]</span>
+<span class="hl std">maxi</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##           date                 area  type cases   cases100k cases100k7d cases2plot year
+##  1: 2021-12-10 Free State of Saxony  Case  2128  52.4533140  369.145127 369.145127 2020
+##  2: 2021-12-10 Free State of Saxony Death    47   1.1585083    8.503944   8.503944 2020
+##  3: 2021-12-10 Free State of Saxony   ICU   470  13.7803119   90.246383  13.780312 2020
+##  4: 2021-12-10              Germany  Case 23679  28.4757275  162.845228 162.845228 2020
+##  5: 2021-12-10              Germany Death   440   0.5291321    3.331127   3.331127 2020
+##  6: 2021-12-10              Germany   ICU  4319   6.2223489   41.951511   6.222349 2020
+##  7: 2021-11-12 Free State of Saxony  Case  5737 141.4119653  628.577049 628.577049 2021
+##  8: 2021-11-12 Free State of Saxony Death    11   0.2711403    2.489560   2.489560 2021
+##  9: 2021-11-12              Germany  Case 48640  58.4931536  280.682957 280.682957 2021
+## 10: 2021-11-12              Germany Death   191   0.2296915    1.254284   1.254284 2021
+## 11: 2021-11-11 Free State of Saxony   ICU   295   8.6493447   54.857369   8.649345 2021
+## 12: 2021-11-11              Germany   ICU  2816   4.0569888   26.255172   4.056989 2021
+##     cases2plotround
+##  1:           369.1
+##  2:             8.5
+##  3:            13.8
+##  4:           162.8
+##  5:            3.33
+##  6:             6.2
+##  7:           628.6
+##  8:            2.49
+##  9:           280.7
+## 10:            1.25
+## 11:             8.6
+## 12:             4.1
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">p1</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">ggplot</span><span class="hl std">(</span>
   <span class="hl std">dat,</span>
   <span class="hl kwd">aes</span><span class="hl std">(</span>
     <span class="hl kwc">x</span> <span class="hl std">= date,</span>
@@ -319,7 +352,9 @@
   <span class="hl std">)</span> <span class="hl opt">+</span>
   <span class="hl kwd">labs</span><span class="hl std">(</span><span class="hl kwc">color</span> <span class="hl std">=</span> <span class="hl str">&quot;Jahr&quot;</span><span class="hl std">,</span>
        <span class="hl kwc">lty</span> <span class="hl std">=</span> <span class="hl str">&quot;Jahr&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
-  <span class="hl kwd">scale_size_manual</span><span class="hl std">(</span><span class="hl kwc">values</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1.2</span><span class="hl std">,</span> <span class="hl num">0.9</span><span class="hl std">))</span>
+  <span class="hl kwd">scale_size_manual</span><span class="hl std">(</span><span class="hl kwc">values</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1.2</span><span class="hl std">,</span> <span class="hl num">0.9</span><span class="hl std">))</span> <span class="hl opt">+</span>
+  <span class="hl std">ggrepel</span><span class="hl opt">::</span><span class="hl kwd">geom_text_repel</span><span class="hl std">(</span><span class="hl kwc">data</span> <span class="hl std">= maxi,</span> <span class="hl kwd">aes</span><span class="hl std">(</span><span class="hl kwc">label</span> <span class="hl std">= cases2plotround ),</span> <span class="hl kwc">size</span><span class="hl std">=</span><span class="hl num">3</span><span class="hl std">,</span> <span class="hl kwc">alpha</span> <span class="hl std">=</span> <span class="hl num">0.8</span><span class="hl std">,</span> <span class="hl kwc">show.legend</span><span class="hl std">=</span><span class="hl num">FALSE</span><span class="hl std">,</span> <span class="hl kwc">min.segment.length</span> <span class="hl std">=</span> <span class="hl num">0</span><span class="hl std">)</span><span class="hl opt">+</span>
+  <span class="hl kwd">guides</span><span class="hl std">(</span><span class="hl kwc">lwd</span> <span class="hl std">=</span> <span class="hl str">&quot;none&quot;</span><span class="hl std">,</span><span class="hl kwc">col</span> <span class="hl std">=</span> <span class="hl kwd">guide_legend</span><span class="hl std">(</span><span class="hl kwc">nrow</span> <span class="hl std">=</span> <span class="hl num">1</span><span class="hl std">,</span><span class="hl kwc">override.aes</span><span class="hl std">=</span><span class="hl kwd">list</span><span class="hl std">(</span><span class="hl kwc">size</span><span class="hl std">=</span><span class="hl num">2</span><span class="hl std">),</span><span class="hl kwc">keywidth</span> <span class="hl std">=</span> <span class="hl num">5</span><span class="hl std">))</span>
 <span class="hl std">p1</span>
 </pre></div>
 </div><div class="rimage center"><img src="figure/b19-s14-2-yearComparisonGerSax-211028-Rhtmlauto-report-3.png" title="plot of chunk auto-report" alt="plot of chunk auto-report" class="plot" /></div><div class="rcode">
@@ -363,9 +398,9 @@
 </pre></div>
 <div class="output"><pre class="knitr r">## 
 ##                                                  NaNs produced 
-##                                                              2 
+##                                                              1 
 ## Transformation introduced infinite values in continuous y-axis 
-##                                                              2
+##                                                              1
 </pre></div>
 <div class="message"><pre class="knitr r">## ==================================================================================
 </pre></div>
@@ -388,21 +423,27 @@
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] toolboxH_0.2.16    eulerr_6.1.1       testthat_3.1.0     stringr_1.4.0     
-##  [5] readxl_1.3.1       RColorBrewer_1.1-2 png_0.1-7          fdrtool_1.2.16    
-##  [9] R.utils_2.11.0     R.oo_1.24.0        R.methodsS3_1.8.1  lubridate_1.8.0   
-## [13] here_1.0.1         scales_1.1.1       magrittr_2.0.1     ggthemes_4.2.4    
-## [17] ggplot2_3.3.5      data.table_1.14.2 
+##  [1] ggrepel_0.9.1      lubridate_1.8.0    here_1.0.1         toolboxH_0.2.16   
+##  [5] eulerr_6.1.1       testthat_3.1.0     stringr_1.4.0      readxl_1.3.1      
+##  [9] RColorBrewer_1.1-2 png_0.1-7          fdrtool_1.2.16     R.utils_2.11.0    
+## [13] R.oo_1.24.0        R.methodsS3_1.8.1  scales_1.1.1       magrittr_2.0.1    
+## [17] ggthemes_4.2.4     ggplot2_3.3.5      data.table_1.14.2 
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.7       cellranger_1.1.0 compiler_4.1.1   pillar_1.6.3     highr_0.9       
-##  [6] tools_4.1.1      digest_0.6.28    evaluate_0.14    lifecycle_1.0.1  tibble_3.1.5    
-## [11] gtable_0.3.0     pkgconfig_2.0.3  rlang_0.4.11     curl_4.3.2       xfun_0.26       
-## [16] fastmap_1.1.0    withr_2.4.2      dplyr_1.0.7      knitr_1.36       generics_0.1.0  
-## [21] vctrs_0.3.8      rprojroot_2.0.2  tidyselect_1.1.1 grid_4.1.1       glue_1.4.2      
-## [26] R6_2.5.1         fansi_0.5.0      rmarkdown_2.11   farver_2.1.0     purrr_0.3.4     
-## [31] htmltools_0.5.2  ellipsis_0.3.2   colorspace_2.0-2 labeling_0.4.2   utf8_1.2.2      
-## [36] stringi_1.7.5    munsell_0.5.0    crayon_1.4.1
+##  [1] tidyselect_1.1.1       xfun_0.26              purrr_0.3.4           
+##  [4] pander_0.6.4           colorspace_2.0-2       vctrs_0.3.8           
+##  [7] generics_0.1.0         htmltools_0.5.2        utf8_1.2.2            
+## [10] rlang_0.4.11           pillar_1.6.3           glue_1.4.2            
+## [13] withr_2.4.2            lifecycle_1.0.1        munsell_0.5.0         
+## [16] gtable_0.3.0           cellranger_1.1.0       evaluate_0.14         
+## [19] labeling_0.4.2         knitr_1.36             fastmap_1.1.0         
+## [22] curl_4.3.2             fansi_0.5.0            highr_0.9             
+## [25] Rcpp_1.0.7             farver_2.1.0           digest_0.6.28         
+## [28] stringi_1.7.5          dplyr_1.0.7            grid_4.1.1            
+## [31] rprojroot_2.0.2        tools_4.1.1            tibble_3.1.5          
+## [34] crayon_1.4.1           pkgconfig_2.0.3        ellipsis_0.3.2        
+## [37] rmarkdown_2.11         rstudioapi_0.13.0-9000 R6_2.5.1              
+## [40] compiler_4.1.1
 </pre></div>
 <div class="message"><pre class="knitr r">## ==================================================================================
 </pre></div>
@@ -432,25 +473,31 @@
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] toolboxH_0.2.16    eulerr_6.1.1       testthat_3.1.0     stringr_1.4.0     
-##  [5] readxl_1.3.1       RColorBrewer_1.1-2 png_0.1-7          fdrtool_1.2.16    
-##  [9] R.utils_2.11.0     R.oo_1.24.0        R.methodsS3_1.8.1  lubridate_1.8.0   
-## [13] here_1.0.1         scales_1.1.1       magrittr_2.0.1     ggthemes_4.2.4    
-## [17] ggplot2_3.3.5      data.table_1.14.2 
+##  [1] ggrepel_0.9.1      lubridate_1.8.0    here_1.0.1         toolboxH_0.2.16   
+##  [5] eulerr_6.1.1       testthat_3.1.0     stringr_1.4.0      readxl_1.3.1      
+##  [9] RColorBrewer_1.1-2 png_0.1-7          fdrtool_1.2.16     R.utils_2.11.0    
+## [13] R.oo_1.24.0        R.methodsS3_1.8.1  scales_1.1.1       magrittr_2.0.1    
+## [17] ggthemes_4.2.4     ggplot2_3.3.5      data.table_1.14.2 
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.7       cellranger_1.1.0 compiler_4.1.1   pillar_1.6.3     highr_0.9       
-##  [6] tools_4.1.1      digest_0.6.28    evaluate_0.14    lifecycle_1.0.1  tibble_3.1.5    
-## [11] gtable_0.3.0     pkgconfig_2.0.3  rlang_0.4.11     curl_4.3.2       xfun_0.26       
-## [16] fastmap_1.1.0    withr_2.4.2      dplyr_1.0.7      knitr_1.36       generics_0.1.0  
-## [21] vctrs_0.3.8      rprojroot_2.0.2  tidyselect_1.1.1 grid_4.1.1       glue_1.4.2      
-## [26] R6_2.5.1         fansi_0.5.0      rmarkdown_2.11   farver_2.1.0     purrr_0.3.4     
-## [31] htmltools_0.5.2  ellipsis_0.3.2   colorspace_2.0-2 labeling_0.4.2   utf8_1.2.2      
-## [36] stringi_1.7.5    munsell_0.5.0    crayon_1.4.1
+##  [1] tidyselect_1.1.1       xfun_0.26              purrr_0.3.4           
+##  [4] pander_0.6.4           colorspace_2.0-2       vctrs_0.3.8           
+##  [7] generics_0.1.0         htmltools_0.5.2        utf8_1.2.2            
+## [10] rlang_0.4.11           pillar_1.6.3           glue_1.4.2            
+## [13] withr_2.4.2            lifecycle_1.0.1        munsell_0.5.0         
+## [16] gtable_0.3.0           cellranger_1.1.0       evaluate_0.14         
+## [19] labeling_0.4.2         knitr_1.36             fastmap_1.1.0         
+## [22] curl_4.3.2             fansi_0.5.0            highr_0.9             
+## [25] Rcpp_1.0.7             farver_2.1.0           digest_0.6.28         
+## [28] stringi_1.7.5          dplyr_1.0.7            grid_4.1.1            
+## [31] rprojroot_2.0.2        tools_4.1.1            tibble_3.1.5          
+## [34] crayon_1.4.1           pkgconfig_2.0.3        ellipsis_0.3.2        
+## [37] rmarkdown_2.11         rstudioapi_0.13.0-9000 R6_2.5.1              
+## [40] compiler_4.1.1
 </pre></div>
 <div class="source"><pre class="knitr r">    <span class="hl kwd">Sys.time</span><span class="hl std">()</span>
 </pre></div>
-<div class="output"><pre class="knitr r">## [1] &quot;2021-11-08 16:01:22 CET&quot;
+<div class="output"><pre class="knitr r">## [1] &quot;2021-11-12 11:44:38 CET&quot;
 </pre></div>
 </div></div>
 

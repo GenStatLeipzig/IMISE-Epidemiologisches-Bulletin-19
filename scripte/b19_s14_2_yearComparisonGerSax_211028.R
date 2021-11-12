@@ -175,6 +175,11 @@ dat %>% str
 
 # Plotting ----
 brk_vec = seq(max(dat$date), min(dat$date), -30)
+maxi = dat[date %in% c(dat[,.(maxdat =max(date) %>% unique()), .(year,type)]$maxdat)]
+maxi[,cases2plotround := ifelse(type=="Death", round(cases2plot,2) %>% as.character(),round(cases2plot,1)%>% as.character())]
+setorder(maxi, -date)
+maxi = maxi[duplicated(paste(area, type, year))==F]
+maxi
 p1 <- ggplot(
   dat, 
   aes(
@@ -211,7 +216,9 @@ p1 <- ggplot(
   ) +
   labs(color = "Jahr",
        lty = "Jahr") +
-  scale_size_manual(values = c(1.2, 0.9))
+  scale_size_manual(values = c(1.2, 0.9)) +
+  ggrepel::geom_text_repel(data = maxi, aes(label = cases2plotround ), size=3, alpha = 0.8, show.legend=FALSE, min.segment.length = 0)+
+  guides(lwd = "none",col = guide_legend(nrow = 1,override.aes=list(size=2),keywidth = 5))
 p1
 
 jpeg(here("results/b19_S14_2_year2year_comparison.jpeg"), 10,4,units = "in", quality  = 100, res = 150)
