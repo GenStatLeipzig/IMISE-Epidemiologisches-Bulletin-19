@@ -82,7 +82,88 @@
 <span class="hl kwd">library</span><span class="hl std">(magrittr)</span>
 <span class="hl kwd">library</span><span class="hl std">(scales)</span>
 <span class="hl kwd">require</span><span class="hl std">(toolboxH)</span>
-<span class="hl kwd">require</span><span class="hl std">(here)</span>
+</pre></div>
+<div class="message"><pre class="knitr r">## Lade nötiges Paket: toolboxH
+</pre></div>
+<div class="message"><pre class="knitr r">## Lade nötiges Paket: R.utils
+</pre></div>
+<div class="message"><pre class="knitr r">## Lade nötiges Paket: R.oo
+</pre></div>
+<div class="message"><pre class="knitr r">## Lade nötiges Paket: R.methodsS3
+</pre></div>
+<div class="message"><pre class="knitr r">## R.methodsS3 v1.8.1 (2020-08-26 16:20:06 UTC) successfully loaded. See ?R.methodsS3 for help.
+</pre></div>
+<div class="message"><pre class="knitr r">## R.oo v1.24.0 (2020-08-26 16:11:58 UTC) successfully loaded. See ?R.oo for help.
+</pre></div>
+<div class="message"><pre class="knitr r">## 
+## Attache Paket: 'R.oo'
+</pre></div>
+<div class="message"><pre class="knitr r">## Das folgende Objekt ist maskiert 'package:R.methodsS3':
+## 
+##     throw
+</pre></div>
+<div class="message"><pre class="knitr r">## Das folgende Objekt ist maskiert 'package:magrittr':
+## 
+##     equals
+</pre></div>
+<div class="message"><pre class="knitr r">## Die folgenden Objekte sind maskiert von 'package:methods':
+## 
+##     getClasses, getMethods
+</pre></div>
+<div class="message"><pre class="knitr r">## Die folgenden Objekte sind maskiert von 'package:base':
+## 
+##     attach, detach, load, save
+</pre></div>
+<div class="message"><pre class="knitr r">## R.utils v2.11.0 (2021-09-26 08:30:02 UTC) successfully loaded. See ?R.utils for help.
+</pre></div>
+<div class="message"><pre class="knitr r">## 
+## Attache Paket: 'R.utils'
+</pre></div>
+<div class="message"><pre class="knitr r">## Das folgende Objekt ist maskiert 'package:magrittr':
+## 
+##     extract
+</pre></div>
+<div class="message"><pre class="knitr r">## Das folgende Objekt ist maskiert 'package:utils':
+## 
+##     timestamp
+</pre></div>
+<div class="message"><pre class="knitr r">## Die folgenden Objekte sind maskiert von 'package:base':
+## 
+##     cat, commandArgs, getOption, inherits, isOpen, nullfile, parse, warnings
+</pre></div>
+<div class="message"><pre class="knitr r">## Lade nötiges Paket: fdrtool
+</pre></div>
+<div class="message"><pre class="knitr r">## Lade nötiges Paket: png
+</pre></div>
+<div class="message"><pre class="knitr r">## Lade nötiges Paket: RColorBrewer
+</pre></div>
+<div class="message"><pre class="knitr r">## Lade nötiges Paket: readxl
+</pre></div>
+<div class="message"><pre class="knitr r">## Lade nötiges Paket: stringr
+</pre></div>
+<div class="message"><pre class="knitr r">## Lade nötiges Paket: testthat
+</pre></div>
+<div class="message"><pre class="knitr r">## 
+## Attache Paket: 'testthat'
+</pre></div>
+<div class="message"><pre class="knitr r">## Das folgende Objekt ist maskiert 'package:R.oo':
+## 
+##     equals
+</pre></div>
+<div class="message"><pre class="knitr r">## Die folgenden Objekte sind maskiert von 'package:magrittr':
+## 
+##     equals, is_less_than, not
+</pre></div>
+<div class="message"><pre class="knitr r">## Lade nötiges Paket: eulerr
+</pre></div>
+<div class="message"><pre class="knitr r">## 
+## Attache Paket: 'toolboxH'
+</pre></div>
+<div class="message"><pre class="knitr r">## Das folgende Objekt ist maskiert 'package:eulerr':
+## 
+##     venn
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">require</span><span class="hl std">(here)</span>
 <span class="hl kwd">require</span><span class="hl std">(lubridate)</span>
 <span class="hl kwd">require</span><span class="hl std">(stringr)</span>
 
@@ -263,12 +344,11 @@
 <span class="hl std">p1</span>
 <span class="hl kwd">dev.off</span><span class="hl std">()</span>
 </pre></div>
-<div class="output"><pre class="knitr r">## RStudioGD 
-##         2
+<div class="output"><pre class="knitr r">## png 
+##   2
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl kwd">sessionInfo</span><span class="hl std">()</span>
 </pre></div>
-</div><div class="rimage center"><img src="figure/b19-s10-5-vaccNonVaccPlotData-Rhtmlauto-report-2.png" title="plot of chunk auto-report" alt="plot of chunk auto-report" class="plot" /></div><div class="rcode">
 <div class="output"><pre class="knitr r">## R version 4.1.1 (2021-08-10)
 ## Platform: x86_64-w64-mingw32/x64 (64-bit)
 ## Running under: Windows 10 x64 (build 19043)
@@ -284,27 +364,21 @@
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] ggrepel_0.9.1      lubridate_1.8.0    here_1.0.1         toolboxH_0.2.16   
-##  [5] eulerr_6.1.1       testthat_3.1.0     stringr_1.4.0      readxl_1.3.1      
-##  [9] RColorBrewer_1.1-2 png_0.1-7          fdrtool_1.2.16     R.utils_2.11.0    
-## [13] R.oo_1.24.0        R.methodsS3_1.8.1  scales_1.1.1       magrittr_2.0.1    
-## [17] ggthemes_4.2.4     ggplot2_3.3.5      data.table_1.14.2 
+##  [1] toolboxH_0.2.16    eulerr_6.1.1       testthat_3.1.0     stringr_1.4.0     
+##  [5] readxl_1.3.1       RColorBrewer_1.1-2 png_0.1-7          fdrtool_1.2.16    
+##  [9] R.utils_2.11.0     R.oo_1.24.0        R.methodsS3_1.8.1  lubridate_1.8.0   
+## [13] here_1.0.1         scales_1.1.1       magrittr_2.0.1     ggthemes_4.2.4    
+## [17] ggplot2_3.3.5      data.table_1.14.2 
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] tidyselect_1.1.1       xfun_0.26              purrr_0.3.4           
-##  [4] pander_0.6.4           colorspace_2.0-2       vctrs_0.3.8           
-##  [7] generics_0.1.0         htmltools_0.5.2        utf8_1.2.2            
-## [10] rlang_0.4.11           pillar_1.6.3           glue_1.4.2            
-## [13] withr_2.4.2            lifecycle_1.0.1        munsell_0.5.0         
-## [16] gtable_0.3.0           cellranger_1.1.0       evaluate_0.14         
-## [19] labeling_0.4.2         knitr_1.36             fastmap_1.1.0         
-## [22] curl_4.3.2             fansi_0.5.0            highr_0.9             
-## [25] Rcpp_1.0.7             farver_2.1.0           digest_0.6.28         
-## [28] stringi_1.7.5          dplyr_1.0.7            grid_4.1.1            
-## [31] rprojroot_2.0.2        tools_4.1.1            tibble_3.1.5          
-## [34] crayon_1.4.1           pkgconfig_2.0.3        ellipsis_0.3.2        
-## [37] rmarkdown_2.11         rstudioapi_0.13.0-9000 R6_2.5.1              
-## [40] compiler_4.1.1
+##  [1] Rcpp_1.0.7       highr_0.9        cellranger_1.1.0 compiler_4.1.1   pillar_1.6.3    
+##  [6] tools_4.1.1      digest_0.6.28    evaluate_0.14    lifecycle_1.0.1  tibble_3.1.5    
+## [11] gtable_0.3.0     pkgconfig_2.0.3  rlang_0.4.11     curl_4.3.2       ggrepel_0.9.1   
+## [16] xfun_0.26        withr_2.4.2      knitr_1.36       dplyr_1.0.7      generics_0.1.0  
+## [21] vctrs_0.3.8      rprojroot_2.0.2  grid_4.1.1       tidyselect_1.1.1 glue_1.4.2      
+## [26] R6_2.5.1         fansi_0.5.0      farver_2.1.0     pander_0.6.4     purrr_0.3.4     
+## [31] ellipsis_0.3.2   colorspace_2.0-2 utf8_1.2.2       stringi_1.7.5    munsell_0.5.0   
+## [36] crayon_1.4.1
 </pre></div>
 </div></div>
 
@@ -328,31 +402,25 @@
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] ggrepel_0.9.1      lubridate_1.8.0    here_1.0.1         toolboxH_0.2.16   
-##  [5] eulerr_6.1.1       testthat_3.1.0     stringr_1.4.0      readxl_1.3.1      
-##  [9] RColorBrewer_1.1-2 png_0.1-7          fdrtool_1.2.16     R.utils_2.11.0    
-## [13] R.oo_1.24.0        R.methodsS3_1.8.1  scales_1.1.1       magrittr_2.0.1    
-## [17] ggthemes_4.2.4     ggplot2_3.3.5      data.table_1.14.2 
+##  [1] toolboxH_0.2.16    eulerr_6.1.1       testthat_3.1.0     stringr_1.4.0     
+##  [5] readxl_1.3.1       RColorBrewer_1.1-2 png_0.1-7          fdrtool_1.2.16    
+##  [9] R.utils_2.11.0     R.oo_1.24.0        R.methodsS3_1.8.1  lubridate_1.8.0   
+## [13] here_1.0.1         scales_1.1.1       magrittr_2.0.1     ggthemes_4.2.4    
+## [17] ggplot2_3.3.5      data.table_1.14.2 
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] tidyselect_1.1.1       xfun_0.26              purrr_0.3.4           
-##  [4] pander_0.6.4           colorspace_2.0-2       vctrs_0.3.8           
-##  [7] generics_0.1.0         htmltools_0.5.2        utf8_1.2.2            
-## [10] rlang_0.4.11           pillar_1.6.3           glue_1.4.2            
-## [13] withr_2.4.2            lifecycle_1.0.1        munsell_0.5.0         
-## [16] gtable_0.3.0           cellranger_1.1.0       evaluate_0.14         
-## [19] labeling_0.4.2         knitr_1.36             fastmap_1.1.0         
-## [22] curl_4.3.2             fansi_0.5.0            highr_0.9             
-## [25] Rcpp_1.0.7             farver_2.1.0           digest_0.6.28         
-## [28] stringi_1.7.5          dplyr_1.0.7            grid_4.1.1            
-## [31] rprojroot_2.0.2        tools_4.1.1            tibble_3.1.5          
-## [34] crayon_1.4.1           pkgconfig_2.0.3        ellipsis_0.3.2        
-## [37] rmarkdown_2.11         rstudioapi_0.13.0-9000 R6_2.5.1              
-## [40] compiler_4.1.1
+##  [1] Rcpp_1.0.7       highr_0.9        cellranger_1.1.0 compiler_4.1.1   pillar_1.6.3    
+##  [6] tools_4.1.1      digest_0.6.28    evaluate_0.14    lifecycle_1.0.1  tibble_3.1.5    
+## [11] gtable_0.3.0     pkgconfig_2.0.3  rlang_0.4.11     curl_4.3.2       ggrepel_0.9.1   
+## [16] xfun_0.26        withr_2.4.2      knitr_1.36       dplyr_1.0.7      generics_0.1.0  
+## [21] vctrs_0.3.8      rprojroot_2.0.2  grid_4.1.1       tidyselect_1.1.1 glue_1.4.2      
+## [26] R6_2.5.1         fansi_0.5.0      farver_2.1.0     pander_0.6.4     purrr_0.3.4     
+## [31] ellipsis_0.3.2   colorspace_2.0-2 utf8_1.2.2       stringi_1.7.5    munsell_0.5.0   
+## [36] crayon_1.4.1
 </pre></div>
 <div class="source"><pre class="knitr r">    <span class="hl kwd">Sys.time</span><span class="hl std">()</span>
 </pre></div>
-<div class="output"><pre class="knitr r">## [1] &quot;2021-11-12 11:44:28 CET&quot;
+<div class="output"><pre class="knitr r">## [1] &quot;2021-11-13 13:09:47 CET&quot;
 </pre></div>
 </div></div>
 
