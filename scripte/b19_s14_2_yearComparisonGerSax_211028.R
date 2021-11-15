@@ -157,11 +157,9 @@ dat[,  cases100k7d := frollsum(
 dat[,cases2plot := ifelse(type=="ICU", cases100k, cases100k7d)]
 # create date comparison groups
 dat$date <- as.Date(dat$date, format="%Y-%m-%d")
-dat[date >= "2021-04-01" , year := "2021"]
-maxdate = max(dat$date)
+dat[, year := year(date) %>% as.numeric()]
+maxdate = max(dat[year ==2021, date])
 maxdate
-
-dat[date >= "2020-04-01" & date <= (maxdate-365)+28, year := "2020"]
 
 
 # add a year to enable plotting using date scale, otherwise: chaos, madness, death...
@@ -174,11 +172,13 @@ dat[,year:=factor(year,levels = c(2021, 2020))]
 dat %>% str
 
 # Plotting ----
-brk_vec = seq(max(dat$date), min(dat$date), -30)
-maxi = dat[date %in% c(dat[,.(maxdat =max(date) %>% unique()), .(year,type)]$maxdat)]
+brk_vec = c(seq(max(dat$date),maxdate +30, -30), seq(maxdate,  min(dat$date), -30))
+plotdates = dat[,.(maxdat =max(date) %>% unique()), .(year,type)]$maxdat %>% unique()
+maxi = dat[date %in% plotdates]
 maxi[,cases2plotround := ifelse(type=="Death", round(cases2plot,2) %>% as.character(),round(cases2plot,1)%>% as.character())]
 setorder(maxi, -date)
-maxi = maxi[duplicated(paste(area, type, year))==F]
+maxi[allDuplicatedEntries(paste(area, type, year))]
+# maxi = maxi[duplicated(paste(area, type, year))==F]
 maxi
 p1 <- ggplot(
   dat, 
@@ -203,7 +203,7 @@ p1 <- ggplot(
                "ICU" = "tägl. Bettenbelegung ITS")
     )
   ) +
-  geom_line(alpha=0.8) +
+  geom_line(alpha=0.5) +
   scale_x_date(breaks = brk_vec, date_labels = "%d-%b") +
   ylab("Fälle / 100.000 Einwohner") + 
   xlab("") + 
@@ -217,7 +217,9 @@ p1 <- ggplot(
   labs(color = "Jahr",
        lty = "Jahr") +
   scale_size_manual(values = c(1.2, 0.9)) +
-  ggrepel::geom_text_repel(data = maxi, aes(label = cases2plotround ), size=3, alpha = 0.8, show.legend=FALSE, min.segment.length = 0)+
+  ggrepel::geom_text_repel(data = maxi, aes(label = cases2plotround ), size=3, alpha = 1, show.legend=FALSE, min.segment.length = 0, direction = "y")+
+  
+  # ggrepel::geom_text_repel(data = maxi, aes(label = cases2plotround ), size=3, alpha = 0.9, show.legend=FALSE, min.segment.length = 0, col = "black")+
   guides(lwd = "none",col = guide_legend(nrow = 1,override.aes=list(size=2),keywidth = 5))
 p1
 

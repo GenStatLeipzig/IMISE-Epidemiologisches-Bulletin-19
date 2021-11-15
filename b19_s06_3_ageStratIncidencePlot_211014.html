@@ -77,35 +77,14 @@
 <div class="chunk" id="auto-report"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Setup ----</span>
 <span class="hl kwd">rm</span><span class="hl std">(</span><span class="hl kwc">list</span> <span class="hl std">=</span> <span class="hl kwd">ls</span><span class="hl std">())</span>
 <span class="hl kwd">library</span><span class="hl std">(data.table)</span>
-</pre></div>
-<div class="message"><pre class="knitr r">## data.table 1.14.2 using 4 threads (see ?getDTthreads).  Latest news: r-datatable.com
-</pre></div>
-<div class="source"><pre class="knitr r"><span class="hl kwd">library</span><span class="hl std">(ggplot2)</span>
+<span class="hl kwd">library</span><span class="hl std">(ggplot2)</span>
 <span class="hl kwd">library</span><span class="hl std">(ggthemes)</span>
 <span class="hl kwd">library</span><span class="hl std">(magrittr)</span>
 <span class="hl kwd">library</span><span class="hl std">(scales)</span>
 <span class="hl kwd">require</span><span class="hl std">(here)</span>
-</pre></div>
-<div class="message"><pre class="knitr r">## Lade nötiges Paket: here
-</pre></div>
-<div class="message"><pre class="knitr r">## here() starts at C:/Users/IMISE/OneDrive/IMISE/R/modellclub/covid19_modellierung/_bulletin/LEipzigPlus_19/IMISE-Epidemiologisches-Bulletin-19
-</pre></div>
-<div class="source"><pre class="knitr r"><span class="hl kwd">require</span><span class="hl std">(lubridate)</span>
-</pre></div>
-<div class="message"><pre class="knitr r">## Lade nötiges Paket: lubridate
-</pre></div>
-<div class="message"><pre class="knitr r">## 
-## Attache Paket: 'lubridate'
-</pre></div>
-<div class="message"><pre class="knitr r">## Die folgenden Objekte sind maskiert von 'package:data.table':
-## 
-##     hour, isoweek, mday, minute, month, quarter, second, wday, week, yday, year
-</pre></div>
-<div class="message"><pre class="knitr r">## Die folgenden Objekte sind maskiert von 'package:base':
-## 
-##     date, intersect, setdiff, union
-</pre></div>
-<div class="source"><pre class="knitr r"><span class="hl com"># based on: https://github.com/holgerman/covid19_germanyByAge/blob/main/covid19_germanyByAge/app.R</span>
+<span class="hl kwd">require</span><span class="hl std">(lubridate)</span>
+
+<span class="hl com"># based on: https://github.com/holgerman/covid19_germanyByAge/blob/main/covid19_germanyByAge/app.R</span>
 
 <span class="hl com"># Read data ----</span>
 
@@ -130,11 +109,11 @@
 ##    4: 2020-03-25       GM       Germany   A35-A59  1989
 ##    5: 2020-03-25       GM       Germany   A60-A79   754
 ##   ---                                                  
-## 4182: 2021-11-13       GM       Germany   A15-A34 12141
-## 4183: 2021-11-13       GM       Germany   A35-A59 16038
-## 4184: 2021-11-13       GM       Germany   A60-A79  5433
-## 4185: 2021-11-13       GM       Germany      A80+  1700
-## 4186: 2021-11-13       GM       Germany unbekannt    48
+## 4196: 2021-11-15       GM       Germany   A15-A34  6435
+## 4197: 2021-11-15       GM       Germany   A35-A59  8442
+## 4198: 2021-11-15       GM       Germany   A60-A79  2900
+## 4199: 2021-11-15       GM       Germany      A80+   886
+## 4200: 2021-11-15       GM       Germany unbekannt    25
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl std">dat_cases_age[location_name</span> <span class="hl opt">==</span> <span class="hl str">&quot;Free State of Saxony&quot;</span><span class="hl std">]</span>
 </pre></div>
@@ -145,11 +124,11 @@
 ##    4: 2020-03-25     GM13 Free State of Saxony   A35-A59    72
 ##    5: 2020-03-25     GM13 Free State of Saxony   A60-A79    30
 ##   ---                                                         
-## 3817: 2021-11-13     GM13 Free State of Saxony   A15-A34  1275
-## 3818: 2021-11-13     GM13 Free State of Saxony   A35-A59  1942
-## 3819: 2021-11-13     GM13 Free State of Saxony   A60-A79   745
-## 3820: 2021-11-13     GM13 Free State of Saxony      A80+   250
-## 3821: 2021-11-13     GM13 Free State of Saxony unbekannt     1
+## 3831: 2021-11-15     GM13 Free State of Saxony   A15-A34  1073
+## 3832: 2021-11-15     GM13 Free State of Saxony   A35-A59  1630
+## 3833: 2021-11-15     GM13 Free State of Saxony   A60-A79   562
+## 3834: 2021-11-15     GM13 Free State of Saxony      A80+   186
+## 3835: 2021-11-15     GM13 Free State of Saxony unbekannt     0
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl com"># I only need germany and saxony</span>
 <span class="hl std">dat_cases_age</span> <span class="hl kwb">&lt;-</span> <span class="hl std">dat_cases_age[location_name</span> <span class="hl opt">%in%</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Germany&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Free State of Saxony&quot;</span><span class="hl std">)]</span>
@@ -160,12 +139,12 @@
 <span class="hl std">toolboxH</span><span class="hl opt">::</span><span class="hl kwd">showNA</span><span class="hl std">(dat_cases_all)</span>
 </pre></div>
 <div class="output"><pre class="knitr r">##             var NAs vals
-## 1          date   0 1196
-## 2      location   0 1196
-## 3 location_name   0 1196
-## 4         value   0 1196
-## 5     age_group   0 1196
-## 6   ROWS_NO_NAs   0 1196
+## 1          date   0 1200
+## 2      location   0 1200
+## 3 location_name   0 1200
+## 4         value   0 1200
+## 5     age_group   0 1200
+## 6   ROWS_NO_NAs   0 1200
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl std">dat_cases_age</span> <span class="hl kwb">=</span> <span class="hl kwd">unique</span><span class="hl std">(</span><span class="hl kwd">rbind</span><span class="hl std">(dat_cases_age, dat_cases_all))</span>
 
@@ -288,35 +267,35 @@
 <span class="hl std">maxi</span>
 </pre></div>
 <div class="output"><pre class="knitr r">##           date        location_name age_group value pop_group value_per_group
-##  1: 2021-11-13 Free State of Saxony   A00-A04   111    180370        61.54017
-##  2: 2021-11-13 Free State of Saxony   A05-A14  1167    365417       319.36117
-##  3: 2021-11-13 Free State of Saxony   A15-A34  1275    786243       162.16361
-##  4: 2021-11-13 Free State of Saxony   A35-A59  1942   1351804       143.65988
-##  5: 2021-11-13 Free State of Saxony   A60-A79   745   1011120        73.68067
-##  6: 2021-11-13 Free State of Saxony      A80+   250    361987        69.06325
-##  7: 2021-11-13 Free State of Saxony      alle  5491   4056941       135.34828
-##  8: 2021-11-13              Germany   A00-A04  1218   3969138        30.68676
-##  9: 2021-11-13              Germany   A05-A14  8503   7508662       113.24255
-## 10: 2021-11-13              Germany   A15-A34 12141  18921292        64.16581
-## 11: 2021-11-13              Germany   A35-A59 16038  28666166        55.94749
-## 12: 2021-11-13              Germany   A60-A79  5433  18153339        29.92838
-## 13: 2021-11-13              Germany      A80+  1700   5936434        28.63672
-## 14: 2021-11-13              Germany      alle 45081  83155031        54.21320
+##  1: 2021-11-15 Free State of Saxony   A00-A04   101    180370        55.99601
+##  2: 2021-11-15 Free State of Saxony   A05-A14   950    365417       259.97696
+##  3: 2021-11-15 Free State of Saxony   A15-A34  1073    786243       136.47180
+##  4: 2021-11-15 Free State of Saxony   A35-A59  1630   1351804       120.57961
+##  5: 2021-11-15 Free State of Saxony   A60-A79   562   1011120        55.58193
+##  6: 2021-11-15 Free State of Saxony      A80+   186    361987        51.38306
+##  7: 2021-11-15 Free State of Saxony      alle  4502   4056941       110.97031
+##  8: 2021-11-15              Germany   A00-A04   701   3969138        17.66127
+##  9: 2021-11-15              Germany   A05-A14  4218   7508662        56.17512
+## 10: 2021-11-15              Germany   A15-A34  6435  18921292        34.00931
+## 11: 2021-11-15              Germany   A35-A59  8442  28666166        29.44935
+## 12: 2021-11-15              Germany   A60-A79  2900  18153339        15.97502
+## 13: 2021-11-15              Germany      A80+   886   5936434        14.92478
+## 14: 2021-11-15              Germany      alle 23607  83155031        28.38914
 ##     val_sum_group val_sum_group_round val_sum_group_round_name
-##  1:      292.7316                 293             A00-A04: 293
-##  2:     1358.9953                1359            A05-A14: 1359
-##  3:      846.5576                 847             A15-A34: 847
-##  4:      757.8761                 758             A35-A59: 758
-##  5:      399.3591                 399             A60-A79: 399
-##  6:      384.2679                 384                A80+: 384
-##  7:      685.9109                 686                alle: 686
-##  8:      157.3641                 157             A00-A04: 157
-##  9:      604.6617                 605             A05-A14: 605
-## 10:      353.3374                 353             A15-A34: 353
-## 11:      303.4553                 303             A35-A59: 303
-## 12:      161.2926                 161             A60-A79: 161
-## 13:      159.0180                 159                A80+: 159
-## 14:      294.0063                 294                alle: 294
+##  1:      345.4011                 345             A00-A04: 345
+##  2:     1712.5640                1713            A05-A14: 1713
+##  3:      940.2945                 940             A15-A34: 940
+##  4:      866.6197                 867             A35-A59: 867
+##  5:      435.7544                 436             A60-A79: 436
+##  6:      409.6832                 410                A80+: 410
+##  7:      785.8384                 786                alle: 786
+##  8:      171.6242                 172             A00-A04: 172
+##  9:      658.8524                 659             A05-A14: 659
+## 10:      375.7936                 376             A15-A34: 376
+## 11:      326.1720                 326             A35-A59: 326
+## 12:      173.1307                 173             A60-A79: 173
+## 13:      167.0363                 167                A80+: 167
+## 14:      315.7115                 316                alle: 316
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl std">gg_color_hue</span> <span class="hl kwb">&lt;-</span> <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">n</span><span class="hl std">) {</span>
   <span class="hl std">hues</span> <span class="hl kwb">=</span> <span class="hl kwd">seq</span><span class="hl std">(</span><span class="hl num">15</span><span class="hl std">,</span> <span class="hl num">375</span><span class="hl std">,</span> <span class="hl kwc">length</span> <span class="hl std">= n</span> <span class="hl opt">+</span> <span class="hl num">1</span><span class="hl std">)</span>
@@ -421,6 +400,8 @@
 ## 32:       Germany 2021-11-11 533.1920
 ## 33:       Germany 2021-11-12 560.9498
 ## 34:       Germany 2021-11-13 587.6902
+## 35:       Germany 2021-11-14 611.6106
+## 36:       Germany 2021-11-15 631.0670
 ##     location_name       date       V2
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl com"># Saving ----</span>
@@ -463,22 +444,27 @@
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] lubridate_1.8.0   here_1.0.1        scales_1.1.1      magrittr_2.0.1   
-## [5] ggthemes_4.2.4    ggplot2_3.3.5     data.table_1.14.2
+##  [1] toolboxH_0.2.16    eulerr_6.1.1       testthat_3.1.0     stringr_1.4.0     
+##  [5] readxl_1.3.1       RColorBrewer_1.1-2 png_0.1-7          fdrtool_1.2.16    
+##  [9] R.utils_2.11.0     R.oo_1.24.0        R.methodsS3_1.8.1  lubridate_1.8.0   
+## [13] here_1.0.1         scales_1.1.1       magrittr_2.0.1     ggthemes_4.2.4    
+## [17] ggplot2_3.3.5      data.table_1.14.2 
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.7         highr_0.9          cellranger_1.1.0   compiler_4.1.1    
-##  [5] pillar_1.6.3       RColorBrewer_1.1-2 R.methodsS3_1.8.1  R.utils_2.11.0    
-##  [9] tools_4.1.1        digest_0.6.28      testthat_3.1.0     evaluate_0.14     
-## [13] lifecycle_1.0.1    tibble_3.1.5       gtable_0.3.0       pkgconfig_2.0.3   
-## [17] png_0.1-7          rlang_0.4.11       curl_4.3.2         ggrepel_0.9.1     
-## [21] xfun_0.26          withr_2.4.2        knitr_1.36         stringr_1.4.0     
-## [25] dplyr_1.0.7        generics_0.1.0     vctrs_0.3.8        rprojroot_2.0.2   
-## [29] grid_4.1.1         tidyselect_1.1.1   glue_1.4.2         R6_2.5.1          
-## [33] toolboxH_0.2.16    fansi_0.5.0        readxl_1.3.1       fdrtool_1.2.16    
-## [37] farver_2.1.0       pander_0.6.4       purrr_0.3.4        ellipsis_0.3.2    
-## [41] colorspace_2.0-2   utf8_1.2.2         stringi_1.7.5      munsell_0.5.0     
-## [45] crayon_1.4.1       R.oo_1.24.0
+##  [1] tidyselect_1.1.1       xfun_0.26              purrr_0.3.4           
+##  [4] pander_0.6.4           colorspace_2.0-2       vctrs_0.3.8           
+##  [7] generics_0.1.0         htmltools_0.5.2        utf8_1.2.2            
+## [10] rlang_0.4.11           pillar_1.6.3           glue_1.4.2            
+## [13] withr_2.4.2            lifecycle_1.0.1        munsell_0.5.0         
+## [16] gtable_0.3.0           cellranger_1.1.0       evaluate_0.14         
+## [19] labeling_0.4.2         knitr_1.36             fastmap_1.1.0         
+## [22] curl_4.3.2             fansi_0.5.0            highr_0.9             
+## [25] Rcpp_1.0.7             farver_2.1.0           digest_0.6.28         
+## [28] stringi_1.7.5          dplyr_1.0.7            ggrepel_0.9.1         
+## [31] grid_4.1.1             rprojroot_2.0.2        tools_4.1.1           
+## [34] tibble_3.1.5           crayon_1.4.1           pkgconfig_2.0.3       
+## [37] ellipsis_0.3.2         rstudioapi_0.13.0-9000 rmarkdown_2.11        
+## [40] R6_2.5.1               compiler_4.1.1
 </pre></div>
 </div></div>
 
@@ -502,26 +488,31 @@
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] lubridate_1.8.0   here_1.0.1        scales_1.1.1      magrittr_2.0.1   
-## [5] ggthemes_4.2.4    ggplot2_3.3.5     data.table_1.14.2
+##  [1] toolboxH_0.2.16    eulerr_6.1.1       testthat_3.1.0     stringr_1.4.0     
+##  [5] readxl_1.3.1       RColorBrewer_1.1-2 png_0.1-7          fdrtool_1.2.16    
+##  [9] R.utils_2.11.0     R.oo_1.24.0        R.methodsS3_1.8.1  lubridate_1.8.0   
+## [13] here_1.0.1         scales_1.1.1       magrittr_2.0.1     ggthemes_4.2.4    
+## [17] ggplot2_3.3.5      data.table_1.14.2 
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.7         highr_0.9          cellranger_1.1.0   compiler_4.1.1    
-##  [5] pillar_1.6.3       RColorBrewer_1.1-2 R.methodsS3_1.8.1  R.utils_2.11.0    
-##  [9] tools_4.1.1        digest_0.6.28      testthat_3.1.0     evaluate_0.14     
-## [13] lifecycle_1.0.1    tibble_3.1.5       gtable_0.3.0       pkgconfig_2.0.3   
-## [17] png_0.1-7          rlang_0.4.11       curl_4.3.2         ggrepel_0.9.1     
-## [21] xfun_0.26          withr_2.4.2        knitr_1.36         stringr_1.4.0     
-## [25] dplyr_1.0.7        generics_0.1.0     vctrs_0.3.8        rprojroot_2.0.2   
-## [29] grid_4.1.1         tidyselect_1.1.1   glue_1.4.2         R6_2.5.1          
-## [33] toolboxH_0.2.16    fansi_0.5.0        readxl_1.3.1       fdrtool_1.2.16    
-## [37] farver_2.1.0       pander_0.6.4       purrr_0.3.4        ellipsis_0.3.2    
-## [41] colorspace_2.0-2   utf8_1.2.2         stringi_1.7.5      munsell_0.5.0     
-## [45] crayon_1.4.1       R.oo_1.24.0
+##  [1] tidyselect_1.1.1       xfun_0.26              purrr_0.3.4           
+##  [4] pander_0.6.4           colorspace_2.0-2       vctrs_0.3.8           
+##  [7] generics_0.1.0         htmltools_0.5.2        utf8_1.2.2            
+## [10] rlang_0.4.11           pillar_1.6.3           glue_1.4.2            
+## [13] withr_2.4.2            lifecycle_1.0.1        munsell_0.5.0         
+## [16] gtable_0.3.0           cellranger_1.1.0       evaluate_0.14         
+## [19] labeling_0.4.2         knitr_1.36             fastmap_1.1.0         
+## [22] curl_4.3.2             fansi_0.5.0            highr_0.9             
+## [25] Rcpp_1.0.7             farver_2.1.0           digest_0.6.28         
+## [28] stringi_1.7.5          dplyr_1.0.7            ggrepel_0.9.1         
+## [31] grid_4.1.1             rprojroot_2.0.2        tools_4.1.1           
+## [34] tibble_3.1.5           crayon_1.4.1           pkgconfig_2.0.3       
+## [37] ellipsis_0.3.2         rstudioapi_0.13.0-9000 rmarkdown_2.11        
+## [40] R6_2.5.1               compiler_4.1.1
 </pre></div>
 <div class="source"><pre class="knitr r">    <span class="hl kwd">Sys.time</span><span class="hl std">()</span>
 </pre></div>
-<div class="output"><pre class="knitr r">## [1] &quot;2021-11-13 13:09:46 CET&quot;
+<div class="output"><pre class="knitr r">## [1] &quot;2021-11-15 21:24:28 CET&quot;
 </pre></div>
 </div></div>
 

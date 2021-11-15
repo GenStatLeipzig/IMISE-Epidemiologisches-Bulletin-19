@@ -59,8 +59,34 @@ p1 = ggplot(dat,
   geom_text(data = maxi, aes(label = count ), size=4, alpha = 1,hjust= -0.2, show.legend=FALSE)
 
 
-
+p1 + scale_y_continuous(breaks = pretty_breaks(10))
 p1
+
+
+p_check = ggplot(melt(dat_pre, id.vars = c('Datenstand', 'Datum'), value.name =   "count", variable.name = 'group2'), 
+            aes(x = Datum,
+                y = count,
+                col = group2
+            )
+) +
+  ylab("Neuinfektion / 100.000 Einwohner\nje  Impfgruppe")+
+  # scale_y_continuous(breaks = pretty_breaks(10))+
+  scale_y_log10(breaks = log_breaks(15))+
+  scale_x_date(breaks = brk_vek, labels = label_date(format = "%d-%b-%y"), limits = c(min(dat$Datum), maxdat+9))+
+  theme_pander(base_size = 16)+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.4, hjust = 0),
+        legend.position = "top")+
+  geom_point(size = 2, alpha=0.7) +
+  xlab("") + 
+  labs(color = "")+
+  guides(col = guide_legend(nrow = 2,override.aes=list(size=5),keywidth = 2))+
+  scale_color_manual(values = c(hue_pal()(3)[2], "black", hue_pal()(3)[3])) +
+  geom_line(data = dat[group =="incidence"],lwd = 2, alpha=1, lty = 3, col = "black") +
+  geom_ribbon(aes(xmin =  max(Datum)-7, xmax =  max(Datum)), fill = "grey55", alpha = 0.7, col = "grey55") +
+  annotate(geom = 'text', x = as_date("2021/10/14"), y = 10, label = "Grau: Daten noch unvollständig,\nNachmeldungen erwartet", col = "grey33", fontface = "bold")
+  # geom_text(data = maxi, aes(label = count ), size=4, alpha = 1,hjust= -0.2, show.legend=FALSE)
+
+p_check
 # groups:
 # vacc = vollständig geimpfte
 # non_vacc = nicht (vollständig) geimpfte

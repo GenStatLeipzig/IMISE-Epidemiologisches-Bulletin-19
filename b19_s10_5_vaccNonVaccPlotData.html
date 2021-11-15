@@ -82,88 +82,7 @@
 <span class="hl kwd">library</span><span class="hl std">(magrittr)</span>
 <span class="hl kwd">library</span><span class="hl std">(scales)</span>
 <span class="hl kwd">require</span><span class="hl std">(toolboxH)</span>
-</pre></div>
-<div class="message"><pre class="knitr r">## Lade nötiges Paket: toolboxH
-</pre></div>
-<div class="message"><pre class="knitr r">## Lade nötiges Paket: R.utils
-</pre></div>
-<div class="message"><pre class="knitr r">## Lade nötiges Paket: R.oo
-</pre></div>
-<div class="message"><pre class="knitr r">## Lade nötiges Paket: R.methodsS3
-</pre></div>
-<div class="message"><pre class="knitr r">## R.methodsS3 v1.8.1 (2020-08-26 16:20:06 UTC) successfully loaded. See ?R.methodsS3 for help.
-</pre></div>
-<div class="message"><pre class="knitr r">## R.oo v1.24.0 (2020-08-26 16:11:58 UTC) successfully loaded. See ?R.oo for help.
-</pre></div>
-<div class="message"><pre class="knitr r">## 
-## Attache Paket: 'R.oo'
-</pre></div>
-<div class="message"><pre class="knitr r">## Das folgende Objekt ist maskiert 'package:R.methodsS3':
-## 
-##     throw
-</pre></div>
-<div class="message"><pre class="knitr r">## Das folgende Objekt ist maskiert 'package:magrittr':
-## 
-##     equals
-</pre></div>
-<div class="message"><pre class="knitr r">## Die folgenden Objekte sind maskiert von 'package:methods':
-## 
-##     getClasses, getMethods
-</pre></div>
-<div class="message"><pre class="knitr r">## Die folgenden Objekte sind maskiert von 'package:base':
-## 
-##     attach, detach, load, save
-</pre></div>
-<div class="message"><pre class="knitr r">## R.utils v2.11.0 (2021-09-26 08:30:02 UTC) successfully loaded. See ?R.utils for help.
-</pre></div>
-<div class="message"><pre class="knitr r">## 
-## Attache Paket: 'R.utils'
-</pre></div>
-<div class="message"><pre class="knitr r">## Das folgende Objekt ist maskiert 'package:magrittr':
-## 
-##     extract
-</pre></div>
-<div class="message"><pre class="knitr r">## Das folgende Objekt ist maskiert 'package:utils':
-## 
-##     timestamp
-</pre></div>
-<div class="message"><pre class="knitr r">## Die folgenden Objekte sind maskiert von 'package:base':
-## 
-##     cat, commandArgs, getOption, inherits, isOpen, nullfile, parse, warnings
-</pre></div>
-<div class="message"><pre class="knitr r">## Lade nötiges Paket: fdrtool
-</pre></div>
-<div class="message"><pre class="knitr r">## Lade nötiges Paket: png
-</pre></div>
-<div class="message"><pre class="knitr r">## Lade nötiges Paket: RColorBrewer
-</pre></div>
-<div class="message"><pre class="knitr r">## Lade nötiges Paket: readxl
-</pre></div>
-<div class="message"><pre class="knitr r">## Lade nötiges Paket: stringr
-</pre></div>
-<div class="message"><pre class="knitr r">## Lade nötiges Paket: testthat
-</pre></div>
-<div class="message"><pre class="knitr r">## 
-## Attache Paket: 'testthat'
-</pre></div>
-<div class="message"><pre class="knitr r">## Das folgende Objekt ist maskiert 'package:R.oo':
-## 
-##     equals
-</pre></div>
-<div class="message"><pre class="knitr r">## Die folgenden Objekte sind maskiert von 'package:magrittr':
-## 
-##     equals, is_less_than, not
-</pre></div>
-<div class="message"><pre class="knitr r">## Lade nötiges Paket: eulerr
-</pre></div>
-<div class="message"><pre class="knitr r">## 
-## Attache Paket: 'toolboxH'
-</pre></div>
-<div class="message"><pre class="knitr r">## Das folgende Objekt ist maskiert 'package:eulerr':
-## 
-##     venn
-</pre></div>
-<div class="source"><pre class="knitr r"><span class="hl kwd">require</span><span class="hl std">(here)</span>
+<span class="hl kwd">require</span><span class="hl std">(here)</span>
 <span class="hl kwd">require</span><span class="hl std">(lubridate)</span>
 <span class="hl kwd">require</span><span class="hl std">(stringr)</span>
 
@@ -177,124 +96,143 @@
 <span class="hl std">dat_pre[</span><span class="hl kwd">allDuplicatedEntries</span><span class="hl std">(Datum)]</span>
 </pre></div>
 <div class="output"><pre class="knitr r">##     Datenstand      Datum non_vacc incidence  vacc
-##  1: 2021-11-11 2021-11-05    852.0     385.7 119.1
-##  2: 2021-11-10 2021-11-05    856.4     385.7 114.8
-##  3: 2021-11-11 2021-11-06    934.0     415.8 116.5
-##  4: 2021-11-10 2021-11-06    941.4     415.8 108.7
-##  5: 2021-11-11 2021-11-07    997.3     444.0 113.6
-##  6: 2021-11-10 2021-11-07   1007.3     444.0 103.2
-##  7: 2021-11-11 2021-11-08   1035.9     491.3 111.8
-##  8: 2021-11-10 2021-11-08   1046.6     491.3 100.6
-##  9: 2021-11-11 2021-11-09   1112.9     483.7 108.2
-## 10: 2021-11-10 2021-11-09   1111.6     483.7  94.1
-## 11: 2021-11-11 2021-11-10   1196.0     459.4  88.9
-## 12: 2021-11-10 2021-11-10   1152.5     459.4  70.7
+##  1: 2021-11-15 2021-11-02    584.2     284.4 111.1
+##  2: 2021-11-10 2021-11-02    584.0     284.4 110.3
+##  3:       &lt;NA&gt; 2021-11-03    686.1     289.7 119.9
+##  4: 2021-11-10 2021-11-03    691.6     289.7 114.0
+##  5:       &lt;NA&gt; 2021-11-04    747.2     336.4 130.9
+##  6: 2021-11-10 2021-11-04    765.9     336.4 113.8
+##  7:       &lt;NA&gt; 2021-11-05    830.5     385.7 138.4
+##  8: 2021-11-11 2021-11-05    852.0     385.7 119.1
+##  9: 2021-11-10 2021-11-05    856.4     385.7 114.8
+## 10:       &lt;NA&gt; 2021-11-06    907.4     415.8 140.6
+## 11: 2021-11-11 2021-11-06    934.0     415.8 116.5
+## 12: 2021-11-10 2021-11-06    941.4     415.8 108.7
+## 13:       &lt;NA&gt; 2021-11-07    965.6     444.0 141.8
+## 14: 2021-11-11 2021-11-07    997.3     444.0 113.6
+## 15: 2021-11-10 2021-11-07   1007.3     444.0 103.2
+## 16:       &lt;NA&gt; 2021-11-08   1002.8     491.3 141.1
+## 17: 2021-11-11 2021-11-08   1035.9     491.3 111.8
+## 18: 2021-11-10 2021-11-08   1046.6     491.3 100.6
+## 19:       &lt;NA&gt; 2021-11-09   1076.6     483.7 143.9
+## 20: 2021-11-11 2021-11-09   1112.9     483.7 108.2
+## 21: 2021-11-10 2021-11-09   1111.6     483.7  94.1
+## 22:       &lt;NA&gt; 2021-11-10   1188.6     459.4 130.0
+## 23: 2021-11-11 2021-11-10   1196.0     459.4  88.9
+## 24: 2021-11-10 2021-11-10   1152.5     459.4  70.7
+## 25:       &lt;NA&gt; 2021-11-11   1339.4     521.9 110.4
+## 26: 2021-11-11 2021-11-11   1259.8     521.9  72.2
+##     Datenstand      Datum non_vacc incidence  vacc
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl std">dat_pre2</span> <span class="hl kwb">=</span> <span class="hl std">dat_pre[</span><span class="hl kwd">is.na</span><span class="hl std">(non_vacc)</span><span class="hl opt">==</span><span class="hl std">F][</span><span class="hl kwd">duplicated</span><span class="hl std">(Datum)</span><span class="hl opt">==</span><span class="hl std">F]</span>
 <span class="hl std">dat_pre2</span>
 </pre></div>
 <div class="output"><pre class="knitr r">##     Datenstand      Datum non_vacc incidence  vacc
-##  1: 2021-11-11 2021-11-11   1259.8     521.9  72.2
-##  2: 2021-11-11 2021-11-10   1196.0     459.4  88.9
-##  3: 2021-11-11 2021-11-09   1112.9     483.7 108.2
-##  4: 2021-11-11 2021-11-08   1035.9     491.3 111.8
-##  5: 2021-11-11 2021-11-07    997.3     444.0 113.6
-##  6: 2021-11-11 2021-11-06    934.0     415.8 116.5
-##  7: 2021-11-11 2021-11-05    852.0     385.7 119.1
-##  8: 2021-11-10 2021-11-04    765.9     336.4 113.8
-##  9: 2021-11-10 2021-11-03    691.6     289.7 114.0
-## 10: 2021-11-10 2021-11-02    584.0     284.4 110.3
-## 11: 2021-11-10 2021-11-01    546.4     291.6 107.3
-## 12: 2021-11-10 2021-10-31    543.0     276.8 105.3
-## 13: 2021-11-10 2021-10-30    532.8     266.4 101.5
-## 14: 2021-11-10 2021-10-29    523.0     253.9  96.9
-## 15: 2021-11-10 2021-10-28    487.6     238.6  92.2
-## 16: 2021-11-10 2021-10-27    437.5     200.8  86.2
-## 17: 2021-11-10 2021-10-26    389.7     191.7  78.7
-## 18: 2021-11-10 2021-10-25    371.9     196.8  76.0
-## 19: 2021-11-10 2021-10-24    360.3     178.0  74.6
-## 20: 2021-11-10 2021-10-23    336.2     159.0  72.7
-## 21: 2021-11-10 2021-10-22    302.4     142.5  69.5
-## 22: 2021-11-10 2021-10-21    276.6     128.9  63.6
-## 23: 2021-11-10 2021-10-20    254.4     116.5  58.3
-## 24: 2021-11-10 2021-10-19    237.0     113.7  49.8
-## 25: 2021-11-10 2021-10-18    231.5     123.3  48.1
-## 26: 2021-11-10 2021-10-17    226.3     113.8  47.9
-## 27: 2021-11-10 2021-10-16    219.0     105.2  44.7
-## 28: 2021-11-10 2021-10-15    204.6      98.9  40.2
-## 29: 2021-11-10 2021-10-14    194.8      92.5  37.3
-## 30: 2021-11-10 2021-10-13    187.7      85.9  34.3
-## 31: 2021-11-10 2021-10-12    178.7      85.3  33.2
-## 32: 2021-11-10 2021-10-11    167.1      91.2  31.4
-## 33: 2021-11-10 2021-10-10    165.8      87.3  31.4
-## 34: 2021-11-10 2021-10-09    160.2      80.8  31.0
-## 35: 2021-11-10 2021-10-08    154.3      77.8  30.4
-## 36: 2021-11-10 2021-10-07    150.6      74.0  29.6
-## 37: 2021-11-10 2021-10-06    140.9      67.9  28.2
-## 38: 2021-11-10 2021-10-05    129.7      65.5  25.8
-## 39: 2021-11-10 2021-10-04    127.8      71.0  25.6
-## 40: 2021-11-10 2021-10-03    127.0      68.9  25.6
-## 41: 2021-11-10 2021-10-02    121.6      62.2  24.2
-## 42: 2021-11-10 2021-10-01    115.8      58.2  22.5
-## 43: 2021-11-10 2021-09-30    105.5      53.2  21.3
-## 44: 2021-11-10 2021-09-29     94.2      45.3  18.7
-## 45: 2021-11-10 2021-09-28     82.3      40.2  15.6
-## 46: 2021-11-10 2021-09-27     76.9      42.5  14.2
-## 47: 2021-11-10 2021-09-26     77.6      40.8  14.1
-## 48: 2021-11-10 2021-09-25     77.5      38.9  13.5
-## 49: 2021-11-10 2021-09-24     73.5      38.3  13.8
-## 50: 2021-11-10 2021-09-23     71.1      37.5  13.1
-## 51: 2021-11-10 2021-09-22     70.5      35.3  13.9
-## 52: 2021-11-10 2021-09-21     70.0      36.8  14.5
-## 53: 2021-11-10 2021-09-20     70.1      39.9  15.2
-## 54: 2021-11-10 2021-09-19     69.1      31.7  15.2
-## 55: 2021-11-10 2021-09-18     70.9      36.6  15.0
-## 56: 2021-11-10 2021-09-17     71.2      37.9  14.0
-## 57: 2021-11-10 2021-09-16     72.4      38.0  13.9
-## 58: 2021-11-10 2021-09-15     73.2      36.8  13.3
-## 59: 2021-11-10 2021-09-14     78.2      40.1  13.2
-## 60: 2021-11-10 2021-09-13     78.4      43.6  12.5
-## 61: 2021-11-10 2021-09-12     77.3      41.2  12.3
-## 62: 2021-11-10 2021-09-11     75.8      39.5  12.5
-## 63: 2021-11-10 2021-09-10     72.9      37.8  12.0
-## 64: 2021-11-10 2021-09-09     70.5      35.8  11.9
-## 65: 2021-11-10 2021-09-08     67.4      32.2  12.2
-## 66: 2021-11-10 2021-09-07     56.3      29.3  11.2
-## 67: 2021-11-10 2021-09-06     52.9      30.3  11.3
-## 68: 2021-11-10 2021-09-05     54.5      29.0   8.8
-## 69: 2021-11-10 2021-09-04     49.9      26.6   8.6
-## 70: 2021-11-10 2021-09-03     47.1      25.1   9.0
-## 71: 2021-11-10 2021-09-02     42.7      22.7   8.3
-## 72: 2021-11-10 2021-09-01     38.4      19.5   8.0
-## 73: 2021-11-10 2021-08-31     37.1      19.3   7.2
-## 74: 2021-11-10 2021-08-30     35.4      20.3   7.0
-## 75: 2021-11-10 2021-08-29     34.7      19.7   7.0
-## 76: 2021-11-10 2021-08-28     33.9      18.6   7.1
-## 77: 2021-11-10 2021-08-27     33.4      18.5   7.3
-## 78: 2021-11-10 2021-08-26     31.8      17.9   7.6
-## 79: 2021-11-10 2021-08-25     30.9      16.2   7.2
+##  1:       &lt;NA&gt; 2021-11-15   1718.3     754.3  61.7
+##  2:       &lt;NA&gt; 2021-11-14   1675.0     670.9  65.7
+##  3:       &lt;NA&gt; 2021-11-13   1604.0     620.7  77.7
+##  4:       &lt;NA&gt; 2021-11-12   1492.8     569.0  91.4
+##  5:       &lt;NA&gt; 2021-11-11   1339.4     521.9 110.4
+##  6:       &lt;NA&gt; 2021-11-10   1188.6     459.4 130.0
+##  7:       &lt;NA&gt; 2021-11-09   1076.6     483.7 143.9
+##  8:       &lt;NA&gt; 2021-11-08   1002.8     491.3 141.1
+##  9:       &lt;NA&gt; 2021-11-07    965.6     444.0 141.8
+## 10:       &lt;NA&gt; 2021-11-06    907.4     415.8 140.6
+## 11:       &lt;NA&gt; 2021-11-05    830.5     385.7 138.4
+## 12:       &lt;NA&gt; 2021-11-04    747.2     336.4 130.9
+## 13:       &lt;NA&gt; 2021-11-03    686.1     289.7 119.9
+## 14: 2021-11-15 2021-11-02    584.2     284.4 111.1
+## 15: 2021-11-10 2021-11-01    546.4     291.6 107.3
+## 16: 2021-11-10 2021-10-31    543.0     276.8 105.3
+## 17: 2021-11-10 2021-10-30    532.8     266.4 101.5
+## 18: 2021-11-10 2021-10-29    523.0     253.9  96.9
+## 19: 2021-11-10 2021-10-28    487.6     238.6  92.2
+## 20: 2021-11-10 2021-10-27    437.5     200.8  86.2
+## 21: 2021-11-10 2021-10-26    389.7     191.7  78.7
+## 22: 2021-11-10 2021-10-25    371.9     196.8  76.0
+## 23: 2021-11-10 2021-10-24    360.3     178.0  74.6
+## 24: 2021-11-10 2021-10-23    336.2     159.0  72.7
+## 25: 2021-11-10 2021-10-22    302.4     142.5  69.5
+## 26: 2021-11-10 2021-10-21    276.6     128.9  63.6
+## 27: 2021-11-10 2021-10-20    254.4     116.5  58.3
+## 28: 2021-11-10 2021-10-19    237.0     113.7  49.8
+## 29: 2021-11-10 2021-10-18    231.5     123.3  48.1
+## 30: 2021-11-10 2021-10-17    226.3     113.8  47.9
+## 31: 2021-11-10 2021-10-16    219.0     105.2  44.7
+## 32: 2021-11-10 2021-10-15    204.6      98.9  40.2
+## 33: 2021-11-10 2021-10-14    194.8      92.5  37.3
+## 34: 2021-11-10 2021-10-13    187.7      85.9  34.3
+## 35: 2021-11-10 2021-10-12    178.7      85.3  33.2
+## 36: 2021-11-10 2021-10-11    167.1      91.2  31.4
+## 37: 2021-11-10 2021-10-10    165.8      87.3  31.4
+## 38: 2021-11-10 2021-10-09    160.2      80.8  31.0
+## 39: 2021-11-10 2021-10-08    154.3      77.8  30.4
+## 40: 2021-11-10 2021-10-07    150.6      74.0  29.6
+## 41: 2021-11-10 2021-10-06    140.9      67.9  28.2
+## 42: 2021-11-10 2021-10-05    129.7      65.5  25.8
+## 43: 2021-11-10 2021-10-04    127.8      71.0  25.6
+## 44: 2021-11-10 2021-10-03    127.0      68.9  25.6
+## 45: 2021-11-10 2021-10-02    121.6      62.2  24.2
+## 46: 2021-11-10 2021-10-01    115.8      58.2  22.5
+## 47: 2021-11-10 2021-09-30    105.5      53.2  21.3
+## 48: 2021-11-10 2021-09-29     94.2      45.3  18.7
+## 49: 2021-11-10 2021-09-28     82.3      40.2  15.6
+## 50: 2021-11-10 2021-09-27     76.9      42.5  14.2
+## 51: 2021-11-10 2021-09-26     77.6      40.8  14.1
+## 52: 2021-11-10 2021-09-25     77.5      38.9  13.5
+## 53: 2021-11-10 2021-09-24     73.5      38.3  13.8
+## 54: 2021-11-10 2021-09-23     71.1      37.5  13.1
+## 55: 2021-11-10 2021-09-22     70.5      35.3  13.9
+## 56: 2021-11-10 2021-09-21     70.0      36.8  14.5
+## 57: 2021-11-10 2021-09-20     70.1      39.9  15.2
+## 58: 2021-11-10 2021-09-19     69.1      31.7  15.2
+## 59: 2021-11-10 2021-09-18     70.9      36.6  15.0
+## 60: 2021-11-10 2021-09-17     71.2      37.9  14.0
+## 61: 2021-11-10 2021-09-16     72.4      38.0  13.9
+## 62: 2021-11-10 2021-09-15     73.2      36.8  13.3
+## 63: 2021-11-10 2021-09-14     78.2      40.1  13.2
+## 64: 2021-11-10 2021-09-13     78.4      43.6  12.5
+## 65: 2021-11-10 2021-09-12     77.3      41.2  12.3
+## 66: 2021-11-10 2021-09-11     75.8      39.5  12.5
+## 67: 2021-11-10 2021-09-10     72.9      37.8  12.0
+## 68: 2021-11-10 2021-09-09     70.5      35.8  11.9
+## 69: 2021-11-10 2021-09-08     67.4      32.2  12.2
+## 70: 2021-11-10 2021-09-07     56.3      29.3  11.2
+## 71: 2021-11-10 2021-09-06     52.9      30.3  11.3
+## 72: 2021-11-10 2021-09-05     54.5      29.0   8.8
+## 73: 2021-11-10 2021-09-04     49.9      26.6   8.6
+## 74: 2021-11-10 2021-09-03     47.1      25.1   9.0
+## 75: 2021-11-10 2021-09-02     42.7      22.7   8.3
+## 76: 2021-11-10 2021-09-01     38.4      19.5   8.0
+## 77: 2021-11-10 2021-08-31     37.1      19.3   7.2
+## 78: 2021-11-10 2021-08-30     35.4      20.3   7.0
+## 79: 2021-11-10 2021-08-29     34.7      19.7   7.0
+## 80: 2021-11-10 2021-08-28     33.9      18.6   7.1
+## 81: 2021-11-10 2021-08-27     33.4      18.5   7.3
+## 82: 2021-11-10 2021-08-26     31.8      17.9   7.6
+## 83: 2021-11-10 2021-08-25     30.9      16.2   7.2
 ##     Datenstand      Datum non_vacc incidence  vacc
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl std">maxdat</span> <span class="hl kwb">=</span> <span class="hl kwd">max</span><span class="hl std">(dat_pre2</span><span class="hl opt">$</span><span class="hl std">Datum)</span>
 <span class="hl std">maxdat</span>
 </pre></div>
-<div class="output"><pre class="knitr r">## [1] &quot;2021-11-11&quot;
+<div class="output"><pre class="knitr r">## [1] &quot;2021-11-15&quot;
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl std">dat</span> <span class="hl kwb">=</span> <span class="hl kwd">melt</span><span class="hl std">(dat_pre2[Datum</span> <span class="hl opt">&lt;=</span> <span class="hl std">maxdat],</span> <span class="hl kwc">id.vars</span> <span class="hl std">=</span> <span class="hl str">&quot;Datum&quot;</span><span class="hl std">,</span> <span class="hl kwc">measure.vars</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;vacc&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;non_vacc&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;incidence&quot;</span><span class="hl std">),</span> <span class="hl kwc">variable.name</span> <span class="hl std">=</span> <span class="hl str">&quot;group&quot;</span><span class="hl std">,</span> <span class="hl kwc">value.name</span> <span class="hl std">=</span> <span class="hl str">&quot;count&quot;</span><span class="hl std">)</span>
 <span class="hl std">dat</span>
 </pre></div>
 <div class="output"><pre class="knitr r">##           Datum     group count
-##   1: 2021-11-11      vacc  72.2
-##   2: 2021-11-10      vacc  88.9
-##   3: 2021-11-09      vacc 108.2
-##   4: 2021-11-08      vacc 111.8
-##   5: 2021-11-07      vacc 113.6
+##   1: 2021-11-15      vacc  61.7
+##   2: 2021-11-14      vacc  65.7
+##   3: 2021-11-13      vacc  77.7
+##   4: 2021-11-12      vacc  91.4
+##   5: 2021-11-11      vacc 110.4
 ##  ---                           
-## 233: 2021-08-29 incidence  19.7
-## 234: 2021-08-28 incidence  18.6
-## 235: 2021-08-27 incidence  18.5
-## 236: 2021-08-26 incidence  17.9
-## 237: 2021-08-25 incidence  16.2
+## 245: 2021-08-29 incidence  19.7
+## 246: 2021-08-28 incidence  18.6
+## 247: 2021-08-27 incidence  18.5
+## 248: 2021-08-26 incidence  17.9
+## 249: 2021-08-25 incidence  16.2
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl std">dat[,group2</span> <span class="hl kwb">:=</span> <span class="hl kwd">ifelse</span><span class="hl std">(group</span><span class="hl opt">==</span><span class="hl str">&quot;vacc&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;vollst. geimpft&quot;</span><span class="hl std">,</span>
                       <span class="hl kwd">ifelse</span><span class="hl std">(group</span><span class="hl opt">==</span><span class="hl str">&quot;non_vacc&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;unvollst. geimpft&quot;</span><span class="hl std">,</span>
@@ -329,10 +267,41 @@
   <span class="hl kwd">geom_text</span><span class="hl std">(</span><span class="hl kwc">data</span> <span class="hl std">= maxi,</span> <span class="hl kwd">aes</span><span class="hl std">(</span><span class="hl kwc">label</span> <span class="hl std">= count ),</span> <span class="hl kwc">size</span><span class="hl std">=</span><span class="hl num">4</span><span class="hl std">,</span> <span class="hl kwc">alpha</span> <span class="hl std">=</span> <span class="hl num">1</span><span class="hl std">,</span><span class="hl kwc">hjust</span><span class="hl std">=</span> <span class="hl opt">-</span><span class="hl num">0.2</span><span class="hl std">,</span> <span class="hl kwc">show.legend</span><span class="hl std">=</span><span class="hl num">FALSE</span><span class="hl std">)</span>
 
 
-
-<span class="hl std">p1</span>
+<span class="hl std">p1</span> <span class="hl opt">+</span> <span class="hl kwd">scale_y_continuous</span><span class="hl std">(</span><span class="hl kwc">breaks</span> <span class="hl std">=</span> <span class="hl kwd">pretty_breaks</span><span class="hl std">(</span><span class="hl num">10</span><span class="hl std">))</span>
+</pre></div>
+<div class="message"><pre class="knitr r">## Scale for 'y' is already present. Adding another scale for 'y', which will replace the
+## existing scale.
 </pre></div>
 </div><div class="rimage center"><img src="figure/b19-s10-5-vaccNonVaccPlotData-Rhtmlauto-report-1.png" title="plot of chunk auto-report" alt="plot of chunk auto-report" class="plot" /></div><div class="rcode">
+<div class="source"><pre class="knitr r"><span class="hl std">p1</span>
+</pre></div>
+</div><div class="rimage center"><img src="figure/b19-s10-5-vaccNonVaccPlotData-Rhtmlauto-report-2.png" title="plot of chunk auto-report" alt="plot of chunk auto-report" class="plot" /></div><div class="rcode">
+<div class="source"><pre class="knitr r"><span class="hl std">p_check</span> <span class="hl kwb">=</span> <span class="hl kwd">ggplot</span><span class="hl std">(</span><span class="hl kwd">melt</span><span class="hl std">(dat_pre,</span> <span class="hl kwc">id.vars</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">'Datenstand'</span><span class="hl std">,</span> <span class="hl str">'Datum'</span><span class="hl std">),</span> <span class="hl kwc">value.name</span> <span class="hl std">=</span>   <span class="hl str">&quot;count&quot;</span><span class="hl std">,</span> <span class="hl kwc">variable.name</span> <span class="hl std">=</span> <span class="hl str">'group2'</span><span class="hl std">),</span>
+            <span class="hl kwd">aes</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">= Datum,</span>
+                <span class="hl kwc">y</span> <span class="hl std">= count,</span>
+                <span class="hl kwc">col</span> <span class="hl std">= group2</span>
+            <span class="hl std">)</span>
+<span class="hl std">)</span> <span class="hl opt">+</span>
+  <span class="hl kwd">ylab</span><span class="hl std">(</span><span class="hl str">&quot;Neuinfektion / 100.000 Einwohner\nje  Impfgruppe&quot;</span><span class="hl std">)</span><span class="hl opt">+</span>
+  <span class="hl com"># scale_y_continuous(breaks = pretty_breaks(10))+</span>
+  <span class="hl kwd">scale_y_log10</span><span class="hl std">(</span><span class="hl kwc">breaks</span> <span class="hl std">=</span> <span class="hl kwd">log_breaks</span><span class="hl std">(</span><span class="hl num">15</span><span class="hl std">))</span><span class="hl opt">+</span>
+  <span class="hl kwd">scale_x_date</span><span class="hl std">(</span><span class="hl kwc">breaks</span> <span class="hl std">= brk_vek,</span> <span class="hl kwc">labels</span> <span class="hl std">=</span> <span class="hl kwd">label_date</span><span class="hl std">(</span><span class="hl kwc">format</span> <span class="hl std">=</span> <span class="hl str">&quot;%d-%b-%y&quot;</span><span class="hl std">),</span> <span class="hl kwc">limits</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl kwd">min</span><span class="hl std">(dat</span><span class="hl opt">$</span><span class="hl std">Datum), maxdat</span><span class="hl opt">+</span><span class="hl num">9</span><span class="hl std">))</span><span class="hl opt">+</span>
+  <span class="hl kwd">theme_pander</span><span class="hl std">(</span><span class="hl kwc">base_size</span> <span class="hl std">=</span> <span class="hl num">16</span><span class="hl std">)</span><span class="hl opt">+</span>
+  <span class="hl kwd">theme</span><span class="hl std">(</span><span class="hl kwc">axis.text.x</span> <span class="hl std">=</span> <span class="hl kwd">element_text</span><span class="hl std">(</span><span class="hl kwc">angle</span> <span class="hl std">=</span> <span class="hl num">90</span><span class="hl std">,</span> <span class="hl kwc">vjust</span> <span class="hl std">=</span> <span class="hl num">0.4</span><span class="hl std">,</span> <span class="hl kwc">hjust</span> <span class="hl std">=</span> <span class="hl num">0</span><span class="hl std">),</span>
+        <span class="hl kwc">legend.position</span> <span class="hl std">=</span> <span class="hl str">&quot;top&quot;</span><span class="hl std">)</span><span class="hl opt">+</span>
+  <span class="hl kwd">geom_point</span><span class="hl std">(</span><span class="hl kwc">size</span> <span class="hl std">=</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl kwc">alpha</span><span class="hl std">=</span><span class="hl num">0.7</span><span class="hl std">)</span> <span class="hl opt">+</span>
+  <span class="hl kwd">xlab</span><span class="hl std">(</span><span class="hl str">&quot;&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
+  <span class="hl kwd">labs</span><span class="hl std">(</span><span class="hl kwc">color</span> <span class="hl std">=</span> <span class="hl str">&quot;&quot;</span><span class="hl std">)</span><span class="hl opt">+</span>
+  <span class="hl kwd">guides</span><span class="hl std">(</span><span class="hl kwc">col</span> <span class="hl std">=</span> <span class="hl kwd">guide_legend</span><span class="hl std">(</span><span class="hl kwc">nrow</span> <span class="hl std">=</span> <span class="hl num">2</span><span class="hl std">,</span><span class="hl kwc">override.aes</span><span class="hl std">=</span><span class="hl kwd">list</span><span class="hl std">(</span><span class="hl kwc">size</span><span class="hl std">=</span><span class="hl num">5</span><span class="hl std">),</span><span class="hl kwc">keywidth</span> <span class="hl std">=</span> <span class="hl num">2</span><span class="hl std">))</span><span class="hl opt">+</span>
+  <span class="hl kwd">scale_color_manual</span><span class="hl std">(</span><span class="hl kwc">values</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl kwd">hue_pal</span><span class="hl std">()(</span><span class="hl num">3</span><span class="hl std">)[</span><span class="hl num">2</span><span class="hl std">],</span> <span class="hl str">&quot;black&quot;</span><span class="hl std">,</span> <span class="hl kwd">hue_pal</span><span class="hl std">()(</span><span class="hl num">3</span><span class="hl std">)[</span><span class="hl num">3</span><span class="hl std">]))</span> <span class="hl opt">+</span>
+  <span class="hl kwd">geom_line</span><span class="hl std">(</span><span class="hl kwc">data</span> <span class="hl std">= dat[group</span> <span class="hl opt">==</span><span class="hl str">&quot;incidence&quot;</span><span class="hl std">],</span><span class="hl kwc">lwd</span> <span class="hl std">=</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl kwc">alpha</span><span class="hl std">=</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl kwc">lty</span> <span class="hl std">=</span> <span class="hl num">3</span><span class="hl std">,</span> <span class="hl kwc">col</span> <span class="hl std">=</span> <span class="hl str">&quot;black&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
+  <span class="hl kwd">geom_ribbon</span><span class="hl std">(</span><span class="hl kwd">aes</span><span class="hl std">(</span><span class="hl kwc">xmin</span> <span class="hl std">=</span>  <span class="hl kwd">max</span><span class="hl std">(Datum)</span><span class="hl opt">-</span><span class="hl num">7</span><span class="hl std">,</span> <span class="hl kwc">xmax</span> <span class="hl std">=</span>  <span class="hl kwd">max</span><span class="hl std">(Datum)),</span> <span class="hl kwc">fill</span> <span class="hl std">=</span> <span class="hl str">&quot;grey55&quot;</span><span class="hl std">,</span> <span class="hl kwc">alpha</span> <span class="hl std">=</span> <span class="hl num">0.7</span><span class="hl std">,</span> <span class="hl kwc">col</span> <span class="hl std">=</span> <span class="hl str">&quot;grey55&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
+  <span class="hl kwd">annotate</span><span class="hl std">(</span><span class="hl kwc">geom</span> <span class="hl std">=</span> <span class="hl str">'text'</span><span class="hl std">,</span> <span class="hl kwc">x</span> <span class="hl std">=</span> <span class="hl kwd">as_date</span><span class="hl std">(</span><span class="hl str">&quot;2021/10/14&quot;</span><span class="hl std">),</span> <span class="hl kwc">y</span> <span class="hl std">=</span> <span class="hl num">10</span><span class="hl std">,</span> <span class="hl kwc">label</span> <span class="hl std">=</span> <span class="hl str">&quot;Grau: Daten noch unvollständig,\nNachmeldungen erwartet&quot;</span><span class="hl std">,</span> <span class="hl kwc">col</span> <span class="hl std">=</span> <span class="hl str">&quot;grey33&quot;</span><span class="hl std">,</span> <span class="hl kwc">fontface</span> <span class="hl std">=</span> <span class="hl str">&quot;bold&quot;</span><span class="hl std">)</span>
+  <span class="hl com"># geom_text(data = maxi, aes(label = count ), size=4, alpha = 1,hjust= -0.2, show.legend=FALSE)</span>
+
+<span class="hl std">p_check</span>
+</pre></div>
+</div><div class="rimage center"><img src="figure/b19-s10-5-vaccNonVaccPlotData-Rhtmlauto-report-3.png" title="plot of chunk auto-report" alt="plot of chunk auto-report" class="plot" /></div><div class="rcode">
 <div class="source"><pre class="knitr r"><span class="hl com"># groups:</span>
 <span class="hl com"># vacc = vollständig geimpfte</span>
 <span class="hl com"># non_vacc = nicht (vollständig) geimpfte</span>
@@ -344,11 +313,12 @@
 <span class="hl std">p1</span>
 <span class="hl kwd">dev.off</span><span class="hl std">()</span>
 </pre></div>
-<div class="output"><pre class="knitr r">## png 
-##   2
+<div class="output"><pre class="knitr r">## RStudioGD 
+##         2
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl kwd">sessionInfo</span><span class="hl std">()</span>
 </pre></div>
+</div><div class="rimage center"><img src="figure/b19-s10-5-vaccNonVaccPlotData-Rhtmlauto-report-4.png" title="plot of chunk auto-report" alt="plot of chunk auto-report" class="plot" /></div><div class="rcode">
 <div class="output"><pre class="knitr r">## R version 4.1.1 (2021-08-10)
 ## Platform: x86_64-w64-mingw32/x64 (64-bit)
 ## Running under: Windows 10 x64 (build 19043)
@@ -371,14 +341,20 @@
 ## [17] ggplot2_3.3.5      data.table_1.14.2 
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.7       highr_0.9        cellranger_1.1.0 compiler_4.1.1   pillar_1.6.3    
-##  [6] tools_4.1.1      digest_0.6.28    evaluate_0.14    lifecycle_1.0.1  tibble_3.1.5    
-## [11] gtable_0.3.0     pkgconfig_2.0.3  rlang_0.4.11     curl_4.3.2       ggrepel_0.9.1   
-## [16] xfun_0.26        withr_2.4.2      knitr_1.36       dplyr_1.0.7      generics_0.1.0  
-## [21] vctrs_0.3.8      rprojroot_2.0.2  grid_4.1.1       tidyselect_1.1.1 glue_1.4.2      
-## [26] R6_2.5.1         fansi_0.5.0      farver_2.1.0     pander_0.6.4     purrr_0.3.4     
-## [31] ellipsis_0.3.2   colorspace_2.0-2 utf8_1.2.2       stringi_1.7.5    munsell_0.5.0   
-## [36] crayon_1.4.1
+##  [1] tidyselect_1.1.1       xfun_0.26              purrr_0.3.4           
+##  [4] pander_0.6.4           colorspace_2.0-2       vctrs_0.3.8           
+##  [7] generics_0.1.0         htmltools_0.5.2        utf8_1.2.2            
+## [10] rlang_0.4.11           pillar_1.6.3           glue_1.4.2            
+## [13] withr_2.4.2            lifecycle_1.0.1        munsell_0.5.0         
+## [16] gtable_0.3.0           cellranger_1.1.0       evaluate_0.14         
+## [19] labeling_0.4.2         knitr_1.36             fastmap_1.1.0         
+## [22] curl_4.3.2             fansi_0.5.0            highr_0.9             
+## [25] Rcpp_1.0.7             farver_2.1.0           digest_0.6.28         
+## [28] stringi_1.7.5          dplyr_1.0.7            ggrepel_0.9.1         
+## [31] grid_4.1.1             rprojroot_2.0.2        tools_4.1.1           
+## [34] tibble_3.1.5           crayon_1.4.1           pkgconfig_2.0.3       
+## [37] ellipsis_0.3.2         rstudioapi_0.13.0-9000 rmarkdown_2.11        
+## [40] R6_2.5.1               compiler_4.1.1
 </pre></div>
 </div></div>
 
@@ -409,18 +385,24 @@
 ## [17] ggplot2_3.3.5      data.table_1.14.2 
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.7       highr_0.9        cellranger_1.1.0 compiler_4.1.1   pillar_1.6.3    
-##  [6] tools_4.1.1      digest_0.6.28    evaluate_0.14    lifecycle_1.0.1  tibble_3.1.5    
-## [11] gtable_0.3.0     pkgconfig_2.0.3  rlang_0.4.11     curl_4.3.2       ggrepel_0.9.1   
-## [16] xfun_0.26        withr_2.4.2      knitr_1.36       dplyr_1.0.7      generics_0.1.0  
-## [21] vctrs_0.3.8      rprojroot_2.0.2  grid_4.1.1       tidyselect_1.1.1 glue_1.4.2      
-## [26] R6_2.5.1         fansi_0.5.0      farver_2.1.0     pander_0.6.4     purrr_0.3.4     
-## [31] ellipsis_0.3.2   colorspace_2.0-2 utf8_1.2.2       stringi_1.7.5    munsell_0.5.0   
-## [36] crayon_1.4.1
+##  [1] tidyselect_1.1.1       xfun_0.26              purrr_0.3.4           
+##  [4] pander_0.6.4           colorspace_2.0-2       vctrs_0.3.8           
+##  [7] generics_0.1.0         htmltools_0.5.2        utf8_1.2.2            
+## [10] rlang_0.4.11           pillar_1.6.3           glue_1.4.2            
+## [13] withr_2.4.2            lifecycle_1.0.1        munsell_0.5.0         
+## [16] gtable_0.3.0           cellranger_1.1.0       evaluate_0.14         
+## [19] labeling_0.4.2         knitr_1.36             fastmap_1.1.0         
+## [22] curl_4.3.2             fansi_0.5.0            highr_0.9             
+## [25] Rcpp_1.0.7             farver_2.1.0           digest_0.6.28         
+## [28] stringi_1.7.5          dplyr_1.0.7            ggrepel_0.9.1         
+## [31] grid_4.1.1             rprojroot_2.0.2        tools_4.1.1           
+## [34] tibble_3.1.5           crayon_1.4.1           pkgconfig_2.0.3       
+## [37] ellipsis_0.3.2         rstudioapi_0.13.0-9000 rmarkdown_2.11        
+## [40] R6_2.5.1               compiler_4.1.1
 </pre></div>
 <div class="source"><pre class="knitr r">    <span class="hl kwd">Sys.time</span><span class="hl std">()</span>
 </pre></div>
-<div class="output"><pre class="knitr r">## [1] &quot;2021-11-13 13:09:47 CET&quot;
+<div class="output"><pre class="knitr r">## [1] &quot;2021-11-15 21:24:30 CET&quot;
 </pre></div>
 </div></div>
 
