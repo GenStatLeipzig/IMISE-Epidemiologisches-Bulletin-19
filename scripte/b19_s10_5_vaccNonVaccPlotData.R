@@ -27,7 +27,7 @@ dat = melt(dat_pre2[Datum <= maxdat], id.vars = "Datum", measure.vars = c("vacc"
 dat
 
 dat[,group2 := ifelse(group=="vacc", "vollst. geimpft", 
-                      ifelse(group=="non_vacc", "unvollst. geimpft", 
+                      ifelse(group=="non_vacc", "unvollst. geimpft oder Impfstatus unbekannt", 
                              ifelse(group=="incidence", "Gesamtbevölkerung", group)))]
 # quick preview
 brk_vek = seq(max(dat$Datum), min(dat$Datum), -7)
