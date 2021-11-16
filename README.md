@@ -10,7 +10,7 @@ Analysecode und Aktualisierungen von Grafiken des Epidemiologischen Bulletins 19
 
 ### Aktualisierung Abb. 2: Vergleich der berichteten COVID-19 Testpositiven nach Impfstatus in Sachsen
 
-<img src="results/b19_s10_5_vaccNonVaccPlotData.jpeg" width="434"/>Quelle: SMS
+<img src="results/b19_s10_5_vaccNonVaccPlotData.jpeg" width="442"/>Quelle: SMS
 
 ### Aktualisierung Abb.3: Vergleich Infektionsgeschehen 2021 vs. 2020
 

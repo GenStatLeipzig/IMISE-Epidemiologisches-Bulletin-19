@@ -93,7 +93,7 @@ p_check
 
 # save
 
-jpeg(here('results/b19_s10_5_vaccNonVaccPlotData.jpeg'), 5,5, quality = 100, res = 150,  units = "in")
+jpeg(here('results/b19_s10_5_vaccNonVaccPlotData.jpeg'), 5.4,5.4, quality = 100, res = 150,  units = "in")
 p1
 dev.off()
 
