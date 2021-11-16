@@ -51,17 +51,16 @@ p1 = ggplot(dat,
   geom_line(lwd = 2, alpha=0.7) +
   xlab("") + 
   labs(color = "")+
-  guides(col = guide_legend(nrow = 2,override.aes=list(size=5),keywidth = 2))+
+  guides(col = guide_legend(nrow = 3,override.aes=list(size=5),keywidth = 2))+
   scale_color_manual(values = c( "black",hue_pal()(3)[2], hue_pal()(3)[3])) +
   geom_line(data = dat[group =="incidence"],lwd = 2, alpha=1, lty = 3, col = "black") +
   geom_ribbon(aes(xmin =  max(Datum)-7, xmax =  max(Datum)), fill = "grey55", alpha = 0.7, col = "grey55") +
   annotate(geom = 'text', x = as_date("2021/10/14"), y = 10, label = "Grau: Daten noch unvollständig,\nNachmeldungen erwartet", col = "grey33", fontface = "bold")+
-  geom_text(data = maxi, aes(label = count ), size=4, alpha = 1,hjust= -0.2, show.legend=FALSE)
+  geom_text(data = maxi, aes(label = round(count) ), size=4, alpha = 1,hjust= -0.2, show.legend=FALSE)
 
 
 p1 + scale_y_continuous(breaks = pretty_breaks(10))
 p1
-
 
 p_check = ggplot(melt(dat_pre, id.vars = c('Datenstand', 'Datum'), value.name =   "count", variable.name = 'group2'), 
             aes(x = Datum,
