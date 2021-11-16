@@ -174,10 +174,16 @@ dat %>% str
 # Plotting ----
 brk_vec = c(seq(max(dat$date),maxdate +30, -30), seq(maxdate,  min(dat$date), -30))
 plotdates = dat[,.(maxdat =max(date) %>% unique()), .(year,type)]$maxdat %>% unique()
-maxi = dat[date %in% plotdates]
+plotdates
+setorder(dat, -date, year, area,type)
+dat
+maxi_pre = dat[duplicated(paste(area, type, year))==F]
+maxi2add = dat[year == 2020 & paste(date, area, type) %in% maxi_pre[year == 2021, paste(date, area, type)],]
+maxi = rbind(maxi_pre, maxi2add)
+# maxi = dat[date %in% plotdates]
 maxi[,cases2plotround := ifelse(type=="Death", round(cases2plot,2) %>% as.character(),round(cases2plot,1)%>% as.character())]
 setorder(maxi, -date)
-maxi[allDuplicatedEntries(paste(area, type, year))]
+# maxi[allDuplicatedEntries(paste(area, type, year))]
 # maxi = maxi[duplicated(paste(area, type, year))==F]
 maxi
 p1 <- ggplot(

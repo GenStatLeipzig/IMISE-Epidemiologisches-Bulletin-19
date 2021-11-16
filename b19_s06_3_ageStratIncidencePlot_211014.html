@@ -109,11 +109,11 @@
 ##    4: 2020-03-25       GM       Germany   A35-A59  1989
 ##    5: 2020-03-25       GM       Germany   A60-A79   754
 ##   ---                                                  
-## 4196: 2021-11-15       GM       Germany   A15-A34  6435
-## 4197: 2021-11-15       GM       Germany   A35-A59  8442
-## 4198: 2021-11-15       GM       Germany   A60-A79  2900
-## 4199: 2021-11-15       GM       Germany      A80+   886
-## 4200: 2021-11-15       GM       Germany unbekannt    25
+## 4203: 2021-11-16       GM       Germany   A15-A34  8511
+## 4204: 2021-11-16       GM       Germany   A35-A59 11544
+## 4205: 2021-11-16       GM       Germany   A60-A79  3886
+## 4206: 2021-11-16       GM       Germany      A80+  1192
+## 4207: 2021-11-16       GM       Germany unbekannt    36
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl std">dat_cases_age[location_name</span> <span class="hl opt">==</span> <span class="hl str">&quot;Free State of Saxony&quot;</span><span class="hl std">]</span>
 </pre></div>
@@ -124,11 +124,11 @@
 ##    4: 2020-03-25     GM13 Free State of Saxony   A35-A59    72
 ##    5: 2020-03-25     GM13 Free State of Saxony   A60-A79    30
 ##   ---                                                         
-## 3831: 2021-11-15     GM13 Free State of Saxony   A15-A34  1073
-## 3832: 2021-11-15     GM13 Free State of Saxony   A35-A59  1630
-## 3833: 2021-11-15     GM13 Free State of Saxony   A60-A79   562
-## 3834: 2021-11-15     GM13 Free State of Saxony      A80+   186
-## 3835: 2021-11-15     GM13 Free State of Saxony unbekannt     0
+## 3838: 2021-11-16     GM13 Free State of Saxony   A15-A34   753
+## 3839: 2021-11-16     GM13 Free State of Saxony   A35-A59  1206
+## 3840: 2021-11-16     GM13 Free State of Saxony   A60-A79   442
+## 3841: 2021-11-16     GM13 Free State of Saxony      A80+   157
+## 3842: 2021-11-16     GM13 Free State of Saxony unbekannt     0
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl com"># I only need germany and saxony</span>
 <span class="hl std">dat_cases_age</span> <span class="hl kwb">&lt;-</span> <span class="hl std">dat_cases_age[location_name</span> <span class="hl opt">%in%</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Germany&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Free State of Saxony&quot;</span><span class="hl std">)]</span>
@@ -139,12 +139,12 @@
 <span class="hl std">toolboxH</span><span class="hl opt">::</span><span class="hl kwd">showNA</span><span class="hl std">(dat_cases_all)</span>
 </pre></div>
 <div class="output"><pre class="knitr r">##             var NAs vals
-## 1          date   0 1200
-## 2      location   0 1200
-## 3 location_name   0 1200
-## 4         value   0 1200
-## 5     age_group   0 1200
-## 6   ROWS_NO_NAs   0 1200
+## 1          date   0 1202
+## 2      location   0 1202
+## 3 location_name   0 1202
+## 4         value   0 1202
+## 5     age_group   0 1202
+## 6   ROWS_NO_NAs   0 1202
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl std">dat_cases_age</span> <span class="hl kwb">=</span> <span class="hl kwd">unique</span><span class="hl std">(</span><span class="hl kwd">rbind</span><span class="hl std">(dat_cases_age, dat_cases_all))</span>
 
@@ -267,35 +267,35 @@
 <span class="hl std">maxi</span>
 </pre></div>
 <div class="output"><pre class="knitr r">##           date        location_name age_group value pop_group value_per_group
-##  1: 2021-11-15 Free State of Saxony   A00-A04   101    180370        55.99601
-##  2: 2021-11-15 Free State of Saxony   A05-A14   950    365417       259.97696
-##  3: 2021-11-15 Free State of Saxony   A15-A34  1073    786243       136.47180
-##  4: 2021-11-15 Free State of Saxony   A35-A59  1630   1351804       120.57961
-##  5: 2021-11-15 Free State of Saxony   A60-A79   562   1011120        55.58193
-##  6: 2021-11-15 Free State of Saxony      A80+   186    361987        51.38306
-##  7: 2021-11-15 Free State of Saxony      alle  4502   4056941       110.97031
-##  8: 2021-11-15              Germany   A00-A04   701   3969138        17.66127
-##  9: 2021-11-15              Germany   A05-A14  4218   7508662        56.17512
-## 10: 2021-11-15              Germany   A15-A34  6435  18921292        34.00931
-## 11: 2021-11-15              Germany   A35-A59  8442  28666166        29.44935
-## 12: 2021-11-15              Germany   A60-A79  2900  18153339        15.97502
-## 13: 2021-11-15              Germany      A80+   886   5936434        14.92478
-## 14: 2021-11-15              Germany      alle 23607  83155031        28.38914
+##  1: 2021-11-16 Free State of Saxony   A00-A04    93    180370        51.56068
+##  2: 2021-11-16 Free State of Saxony   A05-A14   804    365417       220.02260
+##  3: 2021-11-16 Free State of Saxony   A15-A34   753    786243        95.77192
+##  4: 2021-11-16 Free State of Saxony   A35-A59  1206   1351804        89.21412
+##  5: 2021-11-16 Free State of Saxony   A60-A79   442   1011120        43.71390
+##  6: 2021-11-16 Free State of Saxony      A80+   157    361987        43.37172
+##  7: 2021-11-16 Free State of Saxony      alle  3455   4056941        85.16269
+##  8: 2021-11-16              Germany   A00-A04   955   3969138        24.06064
+##  9: 2021-11-16              Germany   A05-A14  5924   7508662        78.89555
+## 10: 2021-11-16              Germany   A15-A34  8511  18921292        44.98107
+## 11: 2021-11-16              Germany   A35-A59 11544  28666166        40.27047
+## 12: 2021-11-16              Germany   A60-A79  3886  18153339        21.40653
+## 13: 2021-11-16              Germany      A80+  1192   5936434        20.07939
+## 14: 2021-11-16              Germany      alle 32048  83155031        38.54006
 ##     val_sum_group val_sum_group_round val_sum_group_round_name
-##  1:      345.4011                 345             A00-A04: 345
-##  2:     1712.5640                1713            A05-A14: 1713
-##  3:      940.2945                 940             A15-A34: 940
-##  4:      866.6197                 867             A35-A59: 867
-##  5:      435.7544                 436             A60-A79: 436
-##  6:      409.6832                 410                A80+: 410
-##  7:      785.8384                 786                alle: 786
-##  8:      171.6242                 172             A00-A04: 172
-##  9:      658.8524                 659             A05-A14: 659
-## 10:      375.7936                 376             A15-A34: 376
-## 11:      326.1720                 326             A35-A59: 326
-## 12:      173.1307                 173             A60-A79: 173
-## 13:      167.0363                 167                A80+: 167
-## 14:      315.7115                 316                alle: 316
+##  1:      377.5572                 378             A00-A04: 378
+##  2:     1869.0975                1869            A05-A14: 1869
+##  3:      986.7178                 987             A15-A34: 987
+##  4:      915.4434                 915             A35-A59: 915
+##  5:      454.8422                 455             A60-A79: 455
+##  6:      427.0872                 427                A80+: 427
+##  7:      832.9429                 833                alle: 833
+##  8:      181.5508                 182             A00-A04: 182
+##  9:      690.9620                 691             A05-A14: 691
+## 10:      386.4535                 386             A15-A34: 386
+## 11:      339.7036                 340             A35-A59: 340
+## 12:      180.5012                 181             A60-A79: 181
+## 13:      171.2476                 171                A80+: 171
+## 14:      327.9970                 328                alle: 328
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl std">gg_color_hue</span> <span class="hl kwb">&lt;-</span> <span class="hl kwa">function</span><span class="hl std">(</span><span class="hl kwc">n</span><span class="hl std">) {</span>
   <span class="hl std">hues</span> <span class="hl kwb">=</span> <span class="hl kwd">seq</span><span class="hl std">(</span><span class="hl num">15</span><span class="hl std">,</span> <span class="hl num">375</span><span class="hl std">,</span> <span class="hl kwc">length</span> <span class="hl std">= n</span> <span class="hl opt">+</span> <span class="hl num">1</span><span class="hl std">)</span>
@@ -402,6 +402,7 @@
 ## 34:       Germany 2021-11-13 587.6902
 ## 35:       Germany 2021-11-14 611.6106
 ## 36:       Germany 2021-11-15 631.0670
+## 37:       Germany 2021-11-16 655.7258
 ##     location_name       date       V2
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl com"># Saving ----</span>
@@ -512,7 +513,7 @@
 </pre></div>
 <div class="source"><pre class="knitr r">    <span class="hl kwd">Sys.time</span><span class="hl std">()</span>
 </pre></div>
-<div class="output"><pre class="knitr r">## [1] &quot;2021-11-15 21:24:28 CET&quot;
+<div class="output"><pre class="knitr r">## [1] &quot;2021-11-16 11:18:58 CET&quot;
 </pre></div>
 </div></div>
 

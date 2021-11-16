@@ -256,7 +256,7 @@
 <span class="hl std">maxdate</span> <span class="hl kwb">=</span> <span class="hl kwd">max</span><span class="hl std">(dat[year</span> <span class="hl opt">==</span><span class="hl num">2021</span><span class="hl std">, date])</span>
 <span class="hl std">maxdate</span>
 </pre></div>
-<div class="output"><pre class="knitr r">## [1] &quot;2021-11-15&quot;
+<div class="output"><pre class="knitr r">## [1] &quot;2021-11-16&quot;
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl com"># add a year to enable plotting using date scale, otherwise: chaos, madness, death...</span>
 <span class="hl std">dat[year</span> <span class="hl opt">==</span> <span class="hl str">&quot;2020&quot;</span><span class="hl std">, date</span> <span class="hl kwb">:=</span> <span class="hl std">date</span> <span class="hl opt">+</span> <span class="hl kwd">years</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">)]</span>
@@ -267,7 +267,7 @@
 <span class="hl std">dat[,year</span><span class="hl kwb">:=</span><span class="hl kwd">factor</span><span class="hl std">(year,</span><span class="hl kwc">levels</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">2021</span><span class="hl std">,</span> <span class="hl num">2020</span><span class="hl std">))]</span>
 <span class="hl std">dat</span> <span class="hl opt">%&gt;%</span> <span class="hl std">str</span>
 </pre></div>
-<div class="output"><pre class="knitr r">## Classes 'data.table' and 'data.frame':	3616 obs. of  8 variables:
+<div class="output"><pre class="knitr r">## Classes 'data.table' and 'data.frame':	3620 obs. of  8 variables:
 ##  $ date       : Date, format: &quot;2021-03-25&quot; &quot;2021-03-26&quot; ...
 ##  $ area       : chr  &quot;Free State of Saxony&quot; &quot;Free State of Saxony&quot; &quot;Free State of Saxony&quot; &quot;Free State of Saxony&quot; ...
 ##  $ type       : chr  &quot;Case&quot; &quot;Case&quot; &quot;Case&quot; &quot;Case&quot; ...
@@ -281,60 +281,55 @@
 <div class="source"><pre class="knitr r"><span class="hl com"># Plotting ----</span>
 <span class="hl std">brk_vec</span> <span class="hl kwb">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl kwd">seq</span><span class="hl std">(</span><span class="hl kwd">max</span><span class="hl std">(dat</span><span class="hl opt">$</span><span class="hl std">date),maxdate</span> <span class="hl opt">+</span><span class="hl num">30</span><span class="hl std">,</span> <span class="hl opt">-</span><span class="hl num">30</span><span class="hl std">),</span> <span class="hl kwd">seq</span><span class="hl std">(maxdate,</span>  <span class="hl kwd">min</span><span class="hl std">(dat</span><span class="hl opt">$</span><span class="hl std">date),</span> <span class="hl opt">-</span><span class="hl num">30</span><span class="hl std">))</span>
 <span class="hl std">plotdates</span> <span class="hl kwb">=</span> <span class="hl std">dat[,</span><span class="hl kwd">.</span><span class="hl std">(</span><span class="hl kwc">maxdat</span> <span class="hl std">=</span><span class="hl kwd">max</span><span class="hl std">(date)</span> <span class="hl opt">%&gt;%</span> <span class="hl kwd">unique</span><span class="hl std">()),</span> <span class="hl kwd">.</span><span class="hl std">(year,type)]</span><span class="hl opt">$</span><span class="hl std">maxdat</span> <span class="hl opt">%&gt;%</span> <span class="hl kwd">unique</span><span class="hl std">()</span>
-<span class="hl std">maxi</span> <span class="hl kwb">=</span> <span class="hl std">dat[date</span> <span class="hl opt">%in%</span> <span class="hl std">plotdates]</span>
+<span class="hl std">plotdates</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] &quot;2021-12-31&quot; &quot;2021-11-16&quot; &quot;2021-11-15&quot;
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">setorder</span><span class="hl std">(dat,</span> <span class="hl opt">-</span><span class="hl std">date, year, area,type)</span>
+<span class="hl std">dat</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##             date                 area  type cases  cases100k cases100k7d cases2plot year
+##    1: 2021-12-31 Free State of Saxony  Case  3571 88.0219850  408.115376 408.115376 2020
+##    2: 2021-12-31 Free State of Saxony Death   136  3.3522795   14.222539  14.222539 2020
+##    3: 2021-12-31 Free State of Saxony   ICU   575 16.8588922  117.719048  16.858892 2020
+##    4: 2021-12-31              Germany  Case 32552 39.1461582  159.487644 159.487644 2020
+##    5: 2021-12-31              Germany Death   964  1.1592804    5.172267   5.172267 2020
+##   ---                                                                                   
+## 3616: 2021-01-01 Free State of Saxony Death   127  3.1304374   14.986661  14.986661 2021
+## 3617: 2021-01-01 Free State of Saxony   ICU   564 16.5363743  117.719048  16.536374 2021
+## 3618: 2021-01-01              Germany  Case 22924 27.5677848  156.350131 156.350131 2021
+## 3619: 2021-01-01              Germany Death   553  0.6650229    5.341830   5.341830 2021
+## 3620: 2021-01-01              Germany   ICU  5583  8.0433836   56.359872   8.043384 2021
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">maxi_pre</span> <span class="hl kwb">=</span> <span class="hl std">dat[</span><span class="hl kwd">duplicated</span><span class="hl std">(</span><span class="hl kwd">paste</span><span class="hl std">(area, type, year))</span><span class="hl opt">==</span><span class="hl std">F]</span>
+<span class="hl std">maxi2add</span> <span class="hl kwb">=</span> <span class="hl std">dat[year</span> <span class="hl opt">==</span> <span class="hl num">2020</span> <span class="hl opt">&amp;</span> <span class="hl kwd">paste</span><span class="hl std">(date, area, type)</span> <span class="hl opt">%in%</span> <span class="hl std">maxi_pre[year</span> <span class="hl opt">==</span> <span class="hl num">2021</span><span class="hl std">,</span> <span class="hl kwd">paste</span><span class="hl std">(date, area, type)],]</span>
+<span class="hl std">maxi</span> <span class="hl kwb">=</span> <span class="hl kwd">rbind</span><span class="hl std">(maxi_pre, maxi2add)</span>
+<span class="hl com"># maxi = dat[date %in% plotdates]</span>
 <span class="hl std">maxi[,cases2plotround</span> <span class="hl kwb">:=</span> <span class="hl kwd">ifelse</span><span class="hl std">(type</span><span class="hl opt">==</span><span class="hl str">&quot;Death&quot;</span><span class="hl std">,</span> <span class="hl kwd">round</span><span class="hl std">(cases2plot,</span><span class="hl num">2</span><span class="hl std">)</span> <span class="hl opt">%&gt;%</span> <span class="hl kwd">as.character</span><span class="hl std">(),</span><span class="hl kwd">round</span><span class="hl std">(cases2plot,</span><span class="hl num">1</span><span class="hl std">)</span><span class="hl opt">%&gt;%</span> <span class="hl kwd">as.character</span><span class="hl std">())]</span>
 <span class="hl kwd">setorder</span><span class="hl std">(maxi,</span> <span class="hl opt">-</span><span class="hl std">date)</span>
-<span class="hl std">maxi[</span><span class="hl kwd">allDuplicatedEntries</span><span class="hl std">(</span><span class="hl kwd">paste</span><span class="hl std">(area, type, year))]</span>
-</pre></div>
-<div class="output"><pre class="knitr r">##           date                 area  type cases  cases100k cases100k7d cases2plot year
-##  1: 2021-12-31 Free State of Saxony  Case  3571 88.0219850  408.115376 408.115376 2020
-##  2: 2021-11-15 Free State of Saxony  Case   917 22.6032373  198.450014 198.450014 2020
-##  3: 2021-12-31 Free State of Saxony Death   136  3.3522795   14.222539  14.222539 2020
-##  4: 2021-11-15 Free State of Saxony Death     9  0.2218420    2.686753   2.686753 2020
-##  5: 2021-12-31 Free State of Saxony   ICU   575 16.8588922  117.719048  16.858892 2020
-##  6: 2021-11-15 Free State of Saxony   ICU   266  7.7990702   54.417572   7.799070 2020
-##  7: 2021-12-31              Germany  Case 32552 39.1461582  159.487644 159.487644 2020
-##  8: 2021-11-15              Germany  Case 16947 20.3800056  158.737239 158.737239 2020
-##  9: 2021-12-31              Germany Death   964  1.1592804    5.172267   5.172267 2020
-## 10: 2021-11-15              Germany Death   107  0.1286753    1.438277   1.438277 2020
-## 11: 2021-12-31              Germany   ICU  5622  8.0995706   56.044361   8.099571 2020
-## 12: 2021-11-15              Germany   ICU  3376  4.8637763   32.169212   4.863776 2020
-##     cases2plotround
-##  1:           408.1
-##  2:           198.5
-##  3:           14.22
-##  4:            2.69
-##  5:            16.9
-##  6:             7.8
-##  7:           159.5
-##  8:           158.7
-##  9:            5.17
-## 10:            1.44
-## 11:             8.1
-## 12:             4.9
-</pre></div>
-<div class="source"><pre class="knitr r"><span class="hl com"># maxi = maxi[duplicated(paste(area, type, year))==F]</span>
+<span class="hl com"># maxi[allDuplicatedEntries(paste(area, type, year))]</span>
+<span class="hl com"># maxi = maxi[duplicated(paste(area, type, year))==F]</span>
 <span class="hl std">maxi</span>
 </pre></div>
-<div class="output"><pre class="knitr r">##           date                 area  type cases    cases100k cases100k7d cases2plot year
-##  1: 2021-12-31 Free State of Saxony  Case  3571  88.02198504  408.115376 408.115376 2020
-##  2: 2021-12-31 Free State of Saxony Death   136   3.35227946   14.222539  14.222539 2020
-##  3: 2021-12-31 Free State of Saxony   ICU   575  16.85889224  117.719048  16.858892 2020
-##  4: 2021-12-31              Germany  Case 32552  39.14615822  159.487644 159.487644 2020
-##  5: 2021-12-31              Germany Death   964   1.15928043    5.172267   5.172267 2020
-##  6: 2021-12-31              Germany   ICU  5622   8.09957061   56.044361   8.099571 2020
-##  7: 2021-11-15 Free State of Saxony  Case   917  22.60323727  198.450014 198.450014 2020
-##  8: 2021-11-15 Free State of Saxony  Case  4502 110.97030990  785.838394 785.838394 2021
-##  9: 2021-11-15 Free State of Saxony Death     9   0.22184202    2.686753   2.686753 2020
-## 10: 2021-11-15 Free State of Saxony Death     8   0.19719291    3.327630   3.327630 2021
-## 11: 2021-11-15 Free State of Saxony   ICU   266   7.79907015   54.417572   7.799070 2020
-## 12: 2021-11-15 Free State of Saxony   ICU   333   9.76349760   61.894124   9.763498 2021
-## 13: 2021-11-15              Germany  Case 16947  20.38000563  158.737239 158.737239 2020
-## 14: 2021-11-15              Germany  Case 23607  28.38914220  315.711505 315.711505 2021
-## 15: 2021-11-15              Germany Death   107   0.12867532    1.438277   1.438277 2020
-## 16: 2021-11-15              Germany Death    43   0.05171064    1.391377   1.391377 2021
-## 17: 2021-11-15              Germany   ICU  3376   4.86377630   32.169212   4.863776 2020
-## 18: 2021-11-15              Germany   ICU  3173   4.57131582   29.099098   4.571316 2021
+<div class="output"><pre class="knitr r">##           date                 area  type cases   cases100k cases100k7d cases2plot year
+##  1: 2021-12-31 Free State of Saxony  Case  3571 88.02198504  408.115376 408.115376 2020
+##  2: 2021-12-31 Free State of Saxony Death   136  3.35227946   14.222539  14.222539 2020
+##  3: 2021-12-31 Free State of Saxony   ICU   575 16.85889224  117.719048  16.858892 2020
+##  4: 2021-12-31              Germany  Case 32552 39.14615822  159.487644 159.487644 2020
+##  5: 2021-12-31              Germany Death   964  1.15928043    5.172267   5.172267 2020
+##  6: 2021-12-31              Germany   ICU  5622  8.09957061   56.044361   8.099571 2020
+##  7: 2021-11-16 Free State of Saxony  Case  3455 85.16268785  832.942850 832.942850 2021
+##  8: 2021-11-16 Free State of Saxony Death     7  0.17254380    3.401578   3.401578 2021
+##  9: 2021-11-16              Germany  Case 32048 38.54006139  327.996992 327.996992 2021
+## 10: 2021-11-16              Germany Death   265  0.31868186    1.506824   1.506824 2021
+## 11: 2021-11-16 Free State of Saxony  Case  1046 25.78297293  204.464398 204.464398 2020
+## 12: 2021-11-16 Free State of Saxony Death     3  0.07394734    2.686753   2.686753 2020
+## 13: 2021-11-16              Germany  Case 10824 13.01665079  155.683906 155.683906 2020
+## 14: 2021-11-16              Germany Death    62  0.07455953    1.437075   1.437075 2020
+## 15: 2021-11-15 Free State of Saxony   ICU   333  9.76349760   61.894124   9.763498 2021
+## 16: 2021-11-15              Germany   ICU  3173  4.57131582   29.099098   4.571316 2021
+## 17: 2021-11-15 Free State of Saxony   ICU   266  7.79907015   54.417572   7.799070 2020
+## 18: 2021-11-15              Germany   ICU  3376  4.86377630   32.169212   4.863776 2020
 ##     cases2plotround
 ##  1:           408.1
 ##  2:           14.22
@@ -342,18 +337,18 @@
 ##  4:           159.5
 ##  5:            5.17
 ##  6:             8.1
-##  7:           198.5
-##  8:           785.8
-##  9:            2.69
-## 10:            3.33
-## 11:             7.8
-## 12:             9.8
-## 13:           158.7
-## 14:           315.7
-## 15:            1.44
-## 16:            1.39
-## 17:             4.9
-## 18:             4.6
+##  7:           832.9
+##  8:             3.4
+##  9:             328
+## 10:            1.51
+## 11:           204.5
+## 12:            2.69
+## 13:           155.7
+## 14:            1.44
+## 15:             9.8
+## 16:             4.6
+## 17:             7.8
+## 18:             4.9
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl std">p1</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">ggplot</span><span class="hl std">(</span>
   <span class="hl std">dat,</span>
@@ -378,7 +373,7 @@
                <span class="hl str">&quot;ICU&quot;</span> <span class="hl std">=</span> <span class="hl str">&quot;tägl. Bettenbelegung ITS&quot;</span><span class="hl std">)</span>
     <span class="hl std">)</span>
   <span class="hl std">)</span> <span class="hl opt">+</span>
-  <span class="hl kwd">geom_line</span><span class="hl std">(</span><span class="hl kwc">alpha</span><span class="hl std">=</span><span class="hl num">0.8</span><span class="hl std">)</span> <span class="hl opt">+</span>
+  <span class="hl kwd">geom_line</span><span class="hl std">(</span><span class="hl kwc">alpha</span><span class="hl std">=</span><span class="hl num">0.5</span><span class="hl std">)</span> <span class="hl opt">+</span>
   <span class="hl kwd">scale_x_date</span><span class="hl std">(</span><span class="hl kwc">breaks</span> <span class="hl std">= brk_vec,</span> <span class="hl kwc">date_labels</span> <span class="hl std">=</span> <span class="hl str">&quot;%d-%b&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
   <span class="hl kwd">ylab</span><span class="hl std">(</span><span class="hl str">&quot;Fälle / 100.000 Einwohner&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
   <span class="hl kwd">xlab</span><span class="hl std">(</span><span class="hl str">&quot;&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
@@ -392,7 +387,9 @@
   <span class="hl kwd">labs</span><span class="hl std">(</span><span class="hl kwc">color</span> <span class="hl std">=</span> <span class="hl str">&quot;Jahr&quot;</span><span class="hl std">,</span>
        <span class="hl kwc">lty</span> <span class="hl std">=</span> <span class="hl str">&quot;Jahr&quot;</span><span class="hl std">)</span> <span class="hl opt">+</span>
   <span class="hl kwd">scale_size_manual</span><span class="hl std">(</span><span class="hl kwc">values</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1.2</span><span class="hl std">,</span> <span class="hl num">0.9</span><span class="hl std">))</span> <span class="hl opt">+</span>
-  <span class="hl std">ggrepel</span><span class="hl opt">::</span><span class="hl kwd">geom_text_repel</span><span class="hl std">(</span><span class="hl kwc">data</span> <span class="hl std">= maxi,</span> <span class="hl kwd">aes</span><span class="hl std">(</span><span class="hl kwc">label</span> <span class="hl std">= cases2plotround ),</span> <span class="hl kwc">size</span><span class="hl std">=</span><span class="hl num">3</span><span class="hl std">,</span> <span class="hl kwc">alpha</span> <span class="hl std">=</span> <span class="hl num">0.8</span><span class="hl std">,</span> <span class="hl kwc">show.legend</span><span class="hl std">=</span><span class="hl num">FALSE</span><span class="hl std">,</span> <span class="hl kwc">min.segment.length</span> <span class="hl std">=</span> <span class="hl num">0</span><span class="hl std">)</span><span class="hl opt">+</span>
+  <span class="hl std">ggrepel</span><span class="hl opt">::</span><span class="hl kwd">geom_text_repel</span><span class="hl std">(</span><span class="hl kwc">data</span> <span class="hl std">= maxi,</span> <span class="hl kwd">aes</span><span class="hl std">(</span><span class="hl kwc">label</span> <span class="hl std">= cases2plotround ),</span> <span class="hl kwc">size</span><span class="hl std">=</span><span class="hl num">3</span><span class="hl std">,</span> <span class="hl kwc">alpha</span> <span class="hl std">=</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl kwc">show.legend</span><span class="hl std">=</span><span class="hl num">FALSE</span><span class="hl std">,</span> <span class="hl kwc">min.segment.length</span> <span class="hl std">=</span> <span class="hl num">0</span><span class="hl std">,</span> <span class="hl kwc">direction</span> <span class="hl std">=</span> <span class="hl str">&quot;y&quot;</span><span class="hl std">)</span><span class="hl opt">+</span>
+
+  <span class="hl com"># ggrepel::geom_text_repel(data = maxi, aes(label = cases2plotround ), size=3, alpha = 0.9, show.legend=FALSE, min.segment.length = 0, col = &quot;black&quot;)+</span>
   <span class="hl kwd">guides</span><span class="hl std">(</span><span class="hl kwc">lwd</span> <span class="hl std">=</span> <span class="hl str">&quot;none&quot;</span><span class="hl std">,</span><span class="hl kwc">col</span> <span class="hl std">=</span> <span class="hl kwd">guide_legend</span><span class="hl std">(</span><span class="hl kwc">nrow</span> <span class="hl std">=</span> <span class="hl num">1</span><span class="hl std">,</span><span class="hl kwc">override.aes</span><span class="hl std">=</span><span class="hl kwd">list</span><span class="hl std">(</span><span class="hl kwc">size</span><span class="hl std">=</span><span class="hl num">2</span><span class="hl std">),</span><span class="hl kwc">keywidth</span> <span class="hl std">=</span> <span class="hl num">5</span><span class="hl std">))</span>
 <span class="hl std">p1</span>
 </pre></div>
@@ -444,12 +441,8 @@
 ## Warnings found so far:
 </pre></div>
 <div class="output"><pre class="knitr r">## 
-##                                                  NaNs produced 
-##                                                              1 
-##        Removed 6 row(s) containing missing values (geom_path). 
-##                                                              1 
-## Transformation introduced infinite values in continuous y-axis 
-##                                                              1
+## Removed 6 row(s) containing missing values (geom_path). 
+##                                                       1
 </pre></div>
 <div class="message"><pre class="knitr r">## ==================================================================================
 </pre></div>
@@ -546,7 +539,7 @@
 </pre></div>
 <div class="source"><pre class="knitr r">    <span class="hl kwd">Sys.time</span><span class="hl std">()</span>
 </pre></div>
-<div class="output"><pre class="knitr r">## [1] &quot;2021-11-15 21:24:38 CET&quot;
+<div class="output"><pre class="knitr r">## [1] &quot;2021-11-16 11:19:07 CET&quot;
 </pre></div>
 </div></div>
 
