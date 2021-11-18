@@ -33,3 +33,10 @@ Der Analysecode ist unter *scripte\\b19_s08_18_weitereSterblichkeit.R verfügbar
 <img src="results/b19_s08_16_szenarienV3_Verstorbene_agedetails.jpeg" title="abb10 szenarien" width="569"/>
 
 *Verstorbenen in Sachsen. Die vertikalen Linien kennzeichnen den 95% Unsicherheitsbereich der jeweiligen Schätzung, der Querbalken den medianen Schätzwert zukünftig Verstorbener (Wert in der Mitte). Gezeigt ist sowohl die gesamte Abschätzung der über 60-Jährigen als auch für die 60-79-Jährigen bzw. über 80-Jährigen separat.*
+
+
+
+
+
+
+Hinweis: Wenn die Erstellerin dieser Website feststellt oder von anderen darauf hingewiesen wird, dass ein konkretes Angebot, zu dem sie einen Link bereitgestellt hat, eine zivil- oder strafrechtliche Verantwortlichkeit auslöst, wird sie den Verweis auf dieses Angebot aufheben.
