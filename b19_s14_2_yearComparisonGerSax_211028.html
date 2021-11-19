@@ -124,13 +124,13 @@
 </pre></div>
 <div class="output"><pre class="knitr r">## .
 ## ERWACHSENE     KINDER 
-##        609        609
+##        610        610
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl std">dat_icu_sax</span><span class="hl opt">$</span><span class="hl std">Behandlungsgruppe</span> <span class="hl opt">%&gt;%</span> <span class="hl std">table</span>
 </pre></div>
 <div class="output"><pre class="knitr r">## .
 ## ERWACHSENE 
-##       9744
+##       9760
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl com"># clean germany data</span>
 <span class="hl std">dat_icu_ger</span> <span class="hl kwb">&lt;-</span> <span class="hl std">dat_icu_ger[Behandlungsgruppe</span> <span class="hl opt">==</span> <span class="hl str">&quot;ERWACHSENE&quot;</span><span class="hl std">,</span> <span class="hl kwd">.</span><span class="hl std">(</span><span class="hl kwc">date</span> <span class="hl std">= Datum,</span>
@@ -267,7 +267,7 @@
 <span class="hl std">dat[,year</span><span class="hl kwb">:=</span><span class="hl kwd">factor</span><span class="hl std">(year,</span><span class="hl kwc">levels</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">2021</span><span class="hl std">,</span> <span class="hl num">2020</span><span class="hl std">))]</span>
 <span class="hl std">dat</span> <span class="hl opt">%&gt;%</span> <span class="hl std">str</span>
 </pre></div>
-<div class="output"><pre class="knitr r">## Classes 'data.table' and 'data.frame':	3638 obs. of  8 variables:
+<div class="output"><pre class="knitr r">## Classes 'data.table' and 'data.frame':	3640 obs. of  8 variables:
 ##  $ date       : Date, format: &quot;2021-03-25&quot; &quot;2021-03-26&quot; ...
 ##  $ area       : chr  &quot;Free State of Saxony&quot; &quot;Free State of Saxony&quot; &quot;Free State of Saxony&quot; &quot;Free State of Saxony&quot; ...
 ##  $ type       : chr  &quot;Case&quot; &quot;Case&quot; &quot;Case&quot; &quot;Case&quot; ...
@@ -283,7 +283,7 @@
 <span class="hl std">plotdates</span> <span class="hl kwb">=</span> <span class="hl std">dat[,</span><span class="hl kwd">.</span><span class="hl std">(</span><span class="hl kwc">maxdat</span> <span class="hl std">=</span><span class="hl kwd">max</span><span class="hl std">(date)</span> <span class="hl opt">%&gt;%</span> <span class="hl kwd">unique</span><span class="hl std">()),</span> <span class="hl kwd">.</span><span class="hl std">(year,type)]</span><span class="hl opt">$</span><span class="hl std">maxdat</span> <span class="hl opt">%&gt;%</span> <span class="hl kwd">unique</span><span class="hl std">()</span>
 <span class="hl std">plotdates</span>
 </pre></div>
-<div class="output"><pre class="knitr r">## [1] &quot;2021-12-31&quot; &quot;2021-11-19&quot; &quot;2021-11-18&quot;
+<div class="output"><pre class="knitr r">## [1] &quot;2021-12-31&quot; &quot;2021-11-19&quot;
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl kwd">setorder</span><span class="hl std">(dat,</span> <span class="hl opt">-</span><span class="hl std">date, year, area,type)</span>
 <span class="hl std">dat</span>
@@ -295,11 +295,11 @@
 ##    4: 2021-12-31              Germany  Case 32552 39.1461582  159.487644 159.487644 2020
 ##    5: 2021-12-31              Germany Death   964  1.1592804    5.172267   5.172267 2020
 ##   ---                                                                                   
-## 3634: 2021-01-01 Free State of Saxony Death   127  3.1304374   14.986661  14.986661 2021
-## 3635: 2021-01-01 Free State of Saxony   ICU   564 16.5363743  117.719048  16.536374 2021
-## 3636: 2021-01-01              Germany  Case 22924 27.5677848  156.350131 156.350131 2021
-## 3637: 2021-01-01              Germany Death   553  0.6650229    5.341830   5.341830 2021
-## 3638: 2021-01-01              Germany   ICU  5583  8.0433836   56.359872   8.043384 2021
+## 3636: 2021-01-01 Free State of Saxony Death   127  3.1304374   14.986661  14.986661 2021
+## 3637: 2021-01-01 Free State of Saxony   ICU   564 16.5363743  117.719048  16.536374 2021
+## 3638: 2021-01-01              Germany  Case 22924 27.5677848  156.350131 156.350131 2021
+## 3639: 2021-01-01              Germany Death   553  0.6650229    5.341830   5.341830 2021
+## 3640: 2021-01-01              Germany   ICU  5583  8.0433836   56.359872   8.043384 2021
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl std">maxi_pre</span> <span class="hl kwb">=</span> <span class="hl std">dat[</span><span class="hl kwd">duplicated</span><span class="hl std">(</span><span class="hl kwd">paste</span><span class="hl std">(area, type, year))</span><span class="hl opt">==</span><span class="hl std">F]</span>
 <span class="hl std">maxi2add</span> <span class="hl kwb">=</span> <span class="hl std">dat[year</span> <span class="hl opt">==</span> <span class="hl num">2020</span> <span class="hl opt">&amp;</span> <span class="hl kwd">paste</span><span class="hl std">(date, area, type)</span> <span class="hl opt">%in%</span> <span class="hl std">maxi_pre[year</span> <span class="hl opt">==</span> <span class="hl num">2021</span><span class="hl std">,</span> <span class="hl kwd">paste</span><span class="hl std">(date, area, type)],]</span>
@@ -320,16 +320,16 @@
 ##  6: 2021-12-31              Germany   ICU  5622  8.0995706   56.044361   8.099571 2020
 ##  7: 2021-11-19 Free State of Saxony  Case     0  0.0000000  759.833579 759.833579 2021
 ##  8: 2021-11-19 Free State of Saxony Death     0  0.0000000    2.785350   2.785350 2021
-##  9: 2021-11-19              Germany  Case 52970 63.7002949  367.267015 367.267015 2021
-## 10: 2021-11-19              Germany Death   201  0.2417172    1.623474   1.623474 2021
-## 11: 2021-11-19 Free State of Saxony  Case  1878 46.2910355  213.683167 213.683167 2020
-## 12: 2021-11-19 Free State of Saxony Death    15  0.3697367    3.056490   3.056490 2020
-## 13: 2021-11-19              Germany  Case 22609 27.1889743  154.365886 154.365886 2020
-## 14: 2021-11-19              Germany Death   251  0.3018458    1.669171   1.669171 2020
-## 15: 2021-11-18 Free State of Saxony   ICU   372 10.9069703   68.432443  10.906970 2021
-## 16: 2021-11-18              Germany   ICU  3412  4.9156412   31.715394   4.915641 2021
-## 17: 2021-11-18 Free State of Saxony   ICU   302  8.8545834   56.557919   8.854583 2020
-## 18: 2021-11-18              Germany   ICU  3551  5.1158974   34.057960   5.115897 2020
+##  9: 2021-11-19 Free State of Saxony   ICU   382 11.2001684   70.924627  11.200168 2021
+## 10: 2021-11-19              Germany  Case 52970 63.7002949  367.267015 367.267015 2021
+## 11: 2021-11-19              Germany Death   201  0.2417172    1.623474   1.623474 2021
+## 12: 2021-11-19              Germany   ICU  3491  5.0294559   32.634556   5.029456 2021
+## 13: 2021-11-19 Free State of Saxony  Case  1878 46.2910355  213.683167 213.683167 2020
+## 14: 2021-11-19 Free State of Saxony Death    15  0.3697367    3.056490   3.056490 2020
+## 15: 2021-11-19 Free State of Saxony   ICU   301  8.8252636   57.760031   8.825264 2020
+## 16: 2021-11-19              Germany  Case 22609 27.1889743  154.365886 154.365886 2020
+## 17: 2021-11-19              Germany Death   251  0.3018458    1.669171   1.669171 2020
+## 18: 2021-11-19              Germany   ICU  3581  5.1591182   34.639999   5.159118 2020
 ##     cases2plotround
 ##  1:           408.1
 ##  2:           14.22
@@ -339,16 +339,16 @@
 ##  6:             8.1
 ##  7:           759.8
 ##  8:            2.79
-##  9:           367.3
-## 10:            1.62
-## 11:           213.7
-## 12:            3.06
-## 13:           154.4
-## 14:            1.67
-## 15:            10.9
-## 16:             4.9
-## 17:             8.9
-## 18:             5.1
+##  9:            11.2
+## 10:           367.3
+## 11:            1.62
+## 12:               5
+## 13:           213.7
+## 14:            3.06
+## 15:             8.8
+## 16:           154.4
+## 17:            1.67
+## 18:             5.2
 </pre></div>
 <div class="source"><pre class="knitr r"><span class="hl std">p1</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">ggplot</span><span class="hl std">(</span>
   <span class="hl std">dat,</span>
@@ -471,11 +471,11 @@
 ##  [1] Rcpp_1.0.7       cellranger_1.1.0 pillar_1.6.3     compiler_4.1.1   highr_0.9       
 ##  [6] tools_4.1.1      digest_0.6.28    evaluate_0.14    lifecycle_1.0.1  tibble_3.1.5    
 ## [11] gtable_0.3.0     pkgconfig_2.0.3  rlang_0.4.11     ggrepel_0.9.1    curl_4.3.2      
-## [16] xfun_0.26        withr_2.4.2      dplyr_1.0.7      knitr_1.36       generics_0.1.0  
-## [21] vctrs_0.3.8      rprojroot_2.0.2  grid_4.1.1       tidyselect_1.1.1 glue_1.4.2      
-## [26] R6_2.5.1         fansi_0.5.0      farver_2.1.0     pander_0.6.4     purrr_0.3.4     
-## [31] ellipsis_0.3.2   colorspace_2.0-2 labeling_0.4.2   utf8_1.2.2       stringi_1.7.5   
-## [36] munsell_0.5.0    crayon_1.4.1
+## [16] xfun_0.26        fastmap_1.1.0    withr_2.4.2      dplyr_1.0.7      knitr_1.36      
+## [21] generics_0.1.0   vctrs_0.3.8      rprojroot_2.0.2  grid_4.1.1       tidyselect_1.1.1
+## [26] glue_1.4.2       R6_2.5.1         fansi_0.5.0      rmarkdown_2.11   farver_2.1.0    
+## [31] pander_0.6.4     purrr_0.3.4      htmltools_0.5.2  ellipsis_0.3.2   colorspace_2.0-2
+## [36] labeling_0.4.2   utf8_1.2.2       stringi_1.7.5    munsell_0.5.0    crayon_1.4.1
 </pre></div>
 <div class="message"><pre class="knitr r">## ==================================================================================
 </pre></div>
@@ -515,15 +515,15 @@
 ##  [1] Rcpp_1.0.7       cellranger_1.1.0 pillar_1.6.3     compiler_4.1.1   highr_0.9       
 ##  [6] tools_4.1.1      digest_0.6.28    evaluate_0.14    lifecycle_1.0.1  tibble_3.1.5    
 ## [11] gtable_0.3.0     pkgconfig_2.0.3  rlang_0.4.11     ggrepel_0.9.1    curl_4.3.2      
-## [16] xfun_0.26        withr_2.4.2      dplyr_1.0.7      knitr_1.36       generics_0.1.0  
-## [21] vctrs_0.3.8      rprojroot_2.0.2  grid_4.1.1       tidyselect_1.1.1 glue_1.4.2      
-## [26] R6_2.5.1         fansi_0.5.0      farver_2.1.0     pander_0.6.4     purrr_0.3.4     
-## [31] ellipsis_0.3.2   colorspace_2.0-2 labeling_0.4.2   utf8_1.2.2       stringi_1.7.5   
-## [36] munsell_0.5.0    crayon_1.4.1
+## [16] xfun_0.26        fastmap_1.1.0    withr_2.4.2      dplyr_1.0.7      knitr_1.36      
+## [21] generics_0.1.0   vctrs_0.3.8      rprojroot_2.0.2  grid_4.1.1       tidyselect_1.1.1
+## [26] glue_1.4.2       R6_2.5.1         fansi_0.5.0      rmarkdown_2.11   farver_2.1.0    
+## [31] pander_0.6.4     purrr_0.3.4      htmltools_0.5.2  ellipsis_0.3.2   colorspace_2.0-2
+## [36] labeling_0.4.2   utf8_1.2.2       stringi_1.7.5    munsell_0.5.0    crayon_1.4.1
 </pre></div>
 <div class="source"><pre class="knitr r">    <span class="hl kwd">Sys.time</span><span class="hl std">()</span>
 </pre></div>
-<div class="output"><pre class="knitr r">## [1] &quot;2021-11-19 08:05:56 CET&quot;
+<div class="output"><pre class="knitr r">## [1] &quot;2021-11-19 20:12:53 CET&quot;
 </pre></div>
 </div></div>
 

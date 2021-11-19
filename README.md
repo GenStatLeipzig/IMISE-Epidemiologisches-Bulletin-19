@@ -1,6 +1,6 @@
 # IMISE Epidemiologisches Bulletin 19
 
-Analysecode und Aktualisierungen von Grafiken des Epidemiologischen Bulletins 19 des IMISE der Universität Leipzig. Das Bulletin 19 ist [hier](https://github.com/GenStatLeipzig/IMISE-Epidemiologisches-Bulletin-19/raw/main/IMISE_Bulletin_19_2021_11_01.pdf) verfügbar.
+Analysecode und Aktualisierungen von Grafiken des Epidemiologischen Bulletins 19 des IMISE der Universität Leipzig. Das Bulletin 19 ist [hier](https://github.com/GenStatLeipzig/IMISE-Epidemiologisches-Bulletin-19/raw/main/IMISE_Bulletin_19_2021_11_01.pdf) verfügbar, vorherige Versionen [hier.](https://github.com/GenStatLeipzig/IMISE-Epidemiologisches-Bulletin-19/tree/main/all_bulletin_pdf "https://github.com/GenStatLeipzig/IMISE-Epidemiologisches-Bulletin-19/tree/main/all_bulletin_pdf").
 
 ### Aktualisierung Abb. 1: Verlauf der COVID-19 Testpositiven in Deutschland und Sachsen nach Altersgruppe.
 
