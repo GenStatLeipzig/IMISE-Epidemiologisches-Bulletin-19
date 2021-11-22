@@ -24,6 +24,8 @@ Gleiche Daten in logarithmischer Skaleneinteilung:
 
 ### Aktualisierung Abb. 7: Aktuelle Entwicklung des Impfschutzes in Deutschland
 
+Über die Grafik hinausgehende Aktualisierungen dieser Daten finden sich im [Wochenbericht des RKI vom 18.11.21](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Situationsberichte/Wochenbericht/Wochenbericht_2021-11-18.pdf?__blob=publicationFile)
+
 <img src="results/b19_s10_2_RKI_farrington.jpeg" title="Abb. 7: Aktuelle Entwicklung des Impfschutzes in Deutschland:" width="564"/>
 
 *Aktuelle Entwicklung des Impfschutzes in Deutschland: Dargestellt sind die Werte für die angegebenen Kalenderwochen. Die meisten Impfungen erfolgten in Deutschland bereits ab der 13. Kalenderwoche (RKI). Etwa 20 Wochen danach beginnt der Schutz vor Infektion zu sinken. Datenquelle: RKI Wochenberichte*
