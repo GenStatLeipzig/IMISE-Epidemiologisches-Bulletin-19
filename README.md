@@ -10,7 +10,7 @@ Analysecode und Aktualisierungen von Grafiken des Epidemiologischen Bulletins 19
 
 ### Abb. 2: Vergleich der berichteten COVID-19 Testpositiven nach Impfstatus in Sachsen
 
-Dieser Plot wird nicht aktualisiert. Hintergrund ist, dass es in dieser Darstellung zu viele Personen mit unbekannten Impfstatus geben könnte, vgl. [Bericht aus Baden Württemberg](https://www.stuttgarter-zeitung.de/inhalt.pandemie-corona-zahlen-ungeimpfter-sind-hoeher-als-die-von-geimpften.21a2fb8d-a3f3-486f-8cf5-64a5fa4b7ca9.html)
+Dieser Plot für Sachsen wird nicht aktualisiert. Hintergrund ist, dass es in dieser Darstellung zu viele Personen mit unbekannten Impfstatus geben könnte, vgl. [Bericht aus Baden Württemberg](https://www.stuttgarter-zeitung.de/inhalt.pandemie-corona-zahlen-ungeimpfter-sind-hoeher-als-die-von-geimpften.21a2fb8d-a3f3-486f-8cf5-64a5fa4b7ca9.html). Eine Darstellung für Deutschland findet sich im [Wochenbericht des RKI vom 25.11.21](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Situationsberichte/Wochenbericht/Wochenbericht_2021-11-25.pdf?__blob=publicationFile).
 
 ### Aktualisierung Abb.3: Vergleich Infektionsgeschehen 2021 vs. 2020
 
@@ -24,7 +24,7 @@ Gleiche Daten in logarithmischer Skaleneinteilung:
 
 ### Aktualisierung Abb. 7: Aktuelle Entwicklung des Impfschutzes in Deutschland
 
-Über die Grafik hinausgehende Aktualisierungen dieser Daten finden sich im [Wochenbericht des RKI vom 18.11.21](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Situationsberichte/Wochenbericht/Wochenbericht_2021-11-18.pdf?__blob=publicationFile)
+Über die Grafik hinausgehende Aktualisierungen dieser Daten finden sich im [Wochenbericht des RKI vom 25.11.21](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Situationsberichte/Wochenbericht/Wochenbericht_2021-11-25.pdf?__blob=publicationFile)
 
 <img src="results/b19_s10_2_RKI_farrington.jpeg" title="Abb. 7: Aktuelle Entwicklung des Impfschutzes in Deutschland:" width="564"/>
 

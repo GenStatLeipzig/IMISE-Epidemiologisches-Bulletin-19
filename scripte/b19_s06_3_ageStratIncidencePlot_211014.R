@@ -14,7 +14,11 @@ require(lubridate)
 
 # read data of all age groups in germany and saxony
 dat_age_ger <- fread(here("data/211014_population_germany.csv"), fill = TRUE, encoding = "UTF-8")
-dat_age_sax <- fread(here("data/211014_population_saxony.csv"), fill = TRUE, encoding = "UTF-8")
+dat_age_sax <- fread(here("data/211014_population_saxony.csv"), fill = TRUE, encoding = "UTF-8")  # alterstratifizierter Bevoelkerungstand Sachsen bzw. bundeslandebene gibt es hier
+# https://www-genesis.destatis.de/genesis//online?operation=table&code=12411-0012&bypass=true&levelindex=0&levelid=1634203440391#abreadcrumb
+
+# alterstratifizierter Bevoelkerungstand Deutschland gibt es hier
+# https://www-genesis.destatis.de/genesis//online?operation=table&code=12411-0006&bypass=true&levelindex=0&levelid=1634203557481#abreadcrumb
 
 # read data of confirmed covid cases
 # dat_cases_age =  fread(here('data/b19_206_2_dat_cases_age.txt'), encoding = "UTF-8") # "https://raw.githubusercontent.com/KITmetricslab/covid19-forecast-hub-de/master/data-truth/RKI/by_age/truth_RKI-Incident%20Cases%20by%20Age_Germany.csv", encoding = "UTF-8") from 16.10.21
@@ -84,7 +88,7 @@ dat_age_sum_pre <- rbindlist(list(dat_age_ger_sum, dat_age_sax_sum))
 dat_age_sum_all = dat_age_sum_pre[,.(age_group = "alle",pop_sum = sum(pop_sum)), .(location_name)]
 dat_age_sum = rbind(dat_age_sum_pre, dat_age_sum_all)
 dat_age_sum
-
+toolboxH::WriteXLS_hk("dat_age_sum", here("results/b19_s06_3_numbers_per_age_group.xlsx"))
 # Merge data ----
 
 # match to dat_cases_age
