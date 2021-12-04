@@ -172,7 +172,7 @@ dat[,year:=factor(year,levels = c(2021, 2020))]
 dat %>% str
 
 # Plotting ----
-brk_vec = c(seq(max(dat$date),maxdate +30, -30), seq(maxdate,  min(dat$date), -30))
+brk_vec = c(seq(max(dat$date),as_date('21-12-31'), -30), seq(maxdate,  min(dat$date), -30))
 plotdates = dat[,.(maxdat =max(date) %>% unique()), .(year,type)]$maxdat %>% unique()
 plotdates
 setorder(dat, -date, year, area,type)
